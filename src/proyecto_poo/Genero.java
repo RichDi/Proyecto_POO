@@ -5,6 +5,12 @@
  */
 package proyecto_poo;
 
+import com.mysql.jdbc.Connection;
+import javax.swing.JOptionPane;
+import java.sql.*;
+
+
+
 /**
  *
  * @author drdr_
@@ -16,6 +22,11 @@ public class Genero extends javax.swing.JFrame {
      */
     public Genero() {
         initComponents();
+    }
+    
+    public Genero(int sw) {
+        initComponents();
+        tf_genero.setText(String.valueOf(sw));        
     }
 
     /**
@@ -29,14 +40,14 @@ public class Genero extends javax.swing.JFrame {
 
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        tf_descripcion = new javax.swing.JTextField();
+        tf_genero = new javax.swing.JTextField();
+        button_new = new javax.swing.JButton();
+        button_delete = new javax.swing.JButton();
+        button_save = new javax.swing.JButton();
+        button_select = new javax.swing.JButton();
+        button_modify = new javax.swing.JButton();
+        button_exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,30 +55,57 @@ public class Genero extends javax.swing.JFrame {
 
         jLabel8.setText("descripcion");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/nuevo-icono-5549-32.png"))); // NOI18N
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/rss-registrarse-pantalla-18-icono-5317-32.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        tf_descripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                tf_descripcionActionPerformed(evt);
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        tf_genero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                tf_generoActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        button_new.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/nuevo-icono-5549-32.png"))); // NOI18N
+        button_new.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                button_newActionPerformed(evt);
+            }
+        });
+
+        button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+        button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_deleteActionPerformed(evt);
+            }
+        });
+
+        button_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/rss-registrarse-pantalla-18-icono-5317-32.png"))); // NOI18N
+        button_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_saveActionPerformed(evt);
+            }
+        });
+
+        button_select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
+        button_select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_selectActionPerformed(evt);
+            }
+        });
+
+        button_modify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
+        button_modify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_modifyActionPerformed(evt);
+            }
+        });
+
+        button_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
+        button_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_exitActionPerformed(evt);
             }
         });
 
@@ -82,22 +120,22 @@ public class Genero extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField8)
-                    .addComponent(jTextField7))
+                    .addComponent(tf_genero)
+                    .addComponent(tf_descripcion))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_new, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,38 +144,71 @@ public class Genero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_save)
+                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(button_new))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_select)
+                    .addComponent(button_exit)
+                    .addComponent(button_delete))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
+        grabar();
+    }//GEN-LAST:event_button_saveActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_button_selectActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_button_exitActionPerformed
+
+    private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
+        nuevo();
+    }//GEN-LAST:event_button_newActionPerformed
+
+    private void tf_generoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_generoActionPerformed
+        
+        String nulo = "";
+        if (tf_genero.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"El genero es requerido");
+        }else{
+            tf_genero.requestFocusInWindow();
+        }
+        
+    }//GEN-LAST:event_tf_generoActionPerformed
+
+    private void button_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modifyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_modifyActionPerformed
+
+    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_deleteActionPerformed
+
+    private void tf_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_descripcionActionPerformed
+        
+        String nulo = "";
+        if (tf_descripcion.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"La descripcion es requerida es requerido");
+        }else{
+            tf_descripcion.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_tf_descripcionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,15 +246,102 @@ public class Genero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton button_delete;
+    private javax.swing.JButton button_exit;
+    private javax.swing.JButton button_modify;
+    private javax.swing.JButton button_new;
+    private javax.swing.JButton button_save;
+    private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField tf_descripcion;
+    private javax.swing.JTextField tf_genero;
     // End of variables declaration//GEN-END:variables
+
+    private void nuevo() {
+        tf_genero.setText("");
+        tf_descripcion.setText("");
+    }
+    
+    private void grabar() {
+        String genero = tf_genero.getText();
+        String descripcion = tf_descripcion.getText();
+        
+        String sql = "insert into generos(id_generos,descripcion) values ("
+                + genero + ","
+                + "\"" + descripcion + "\")";
+        
+        connect_and_catch(sql, "Registro dado de alta con exito");                            
+    }
+    
+    private void modificar() {
+        String genero = tf_genero.getText();
+        String descripcion = tf_descripcion.getText();
+        
+        String sql = " udpate generos set "
+                + " descripcion = " + descripcion
+                + " where id_generos = " + genero;
+        
+        
+        connect_and_catch(sql,"Reigstro modificado con exito");
+    }
+    
+    private void borrar() {
+        String genero = tf_genero.getText();        
+        String sql = "delete from generos where id_generos = "
+                + genero + ";";        
+        connect_and_catch(sql,"Registro borrado con exito");        
+    }
+    
+    private void consultar() {
+        String id = tf_genero.getText();
+        
+        try{            
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);            
+            PreparedStatement stmt = null;            
+            
+            ResultSet table;           
+            String sql = "select * from generos where "
+                    + "id_generos = " + id;                    
+            stmt = con.prepareStatement(sql);            
+            table = stmt.executeQuery();        
+            while (table.next()){
+                tf_descripcion.setText(table.getString(2));                
+            }
+            
+        }catch(ClassNotFoundException e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }catch(SQLException e2){
+            JOptionPane.showMessageDialog(null,e2);
+        }catch(Exception e3){
+            JOptionPane.showMessageDialog(null,e3);
+        }
+    }
+    
+    private void salir() {
+        
+    }
+    
+    private void connect_and_catch(String sql, String mensaje){
+        try{            
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);            
+            PreparedStatement stmt = null;            
+            stmt=con.prepareStatement(sql);
+            int sw=stmt.executeUpdate();            
+            if(sw!=0){
+                JOptionPane.showMessageDialog(null,mensaje);
+                nuevo();
+            }                        
+        }catch(ClassNotFoundException e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }catch(SQLException e2){
+            JOptionPane.showMessageDialog(null,e2);
+        }catch(Exception e3){
+            JOptionPane.showMessageDialog(null,e3);
+        }
+    }
 }

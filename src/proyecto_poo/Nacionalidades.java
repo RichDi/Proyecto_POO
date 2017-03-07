@@ -5,6 +5,13 @@
  */
 package proyecto_poo;
 
+import com.mysql.jdbc.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author drdr_
@@ -27,47 +34,64 @@ public class Nacionalidades extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        button_save = new javax.swing.JButton();
+        button_delete = new javax.swing.JButton();
+        button_modify = new javax.swing.JButton();
+        button_select = new javax.swing.JButton();
+        tf_id_nacionalidades = new javax.swing.JTextField();
+        button_exit = new javax.swing.JButton();
+        button_new = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tf_descripcion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/rss-registrarse-pantalla-18-icono-5317-32.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        button_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/rss-registrarse-pantalla-18-icono-5317-32.png"))); // NOI18N
+        button_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                button_saveActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+        button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
+        button_modify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        button_select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
+        button_select.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                button_selectActionPerformed(evt);
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        tf_id_nacionalidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                tf_id_nacionalidadesActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/nuevo-icono-5549-32.png"))); // NOI18N
+        button_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
+        button_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_exitActionPerformed(evt);
+            }
+        });
+
+        button_new.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/nuevo-icono-5549-32.png"))); // NOI18N
+        button_new.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_newActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("descripcion");
+
+        tf_descripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_descripcionActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("id_nacionalidades");
 
@@ -81,14 +105,14 @@ public class Nacionalidades extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_id_nacionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(button_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button_new, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel8)))
@@ -96,13 +120,13 @@ public class Nacionalidades extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tf_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -111,38 +135,60 @@ public class Nacionalidades extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_id_nacionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_save)
+                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(button_new))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_select)
+                    .addComponent(button_exit)
+                    .addComponent(button_delete))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_button_saveActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_button_selectActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_button_exitActionPerformed
+
+    private void tf_id_nacionalidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_nacionalidadesActionPerformed
+        String nulo = "";
+        if (tf_id_nacionalidades.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"El id_nacionalidad es requerido");
+        }else{
+            tf_id_nacionalidades.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_tf_id_nacionalidadesActionPerformed
+
+    private void tf_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_descripcionActionPerformed
+        String nulo = "";
+        if (tf_descripcion.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"La descripcion es requerido");
+        }else{
+            tf_descripcion.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_tf_descripcionActionPerformed
+
+    private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
+        nuevo();
+    }//GEN-LAST:event_button_newActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,17 +224,96 @@ public class Nacionalidades extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void nuevo(){
+        tf_descripcion.setText("");
+        tf_id_nacionalidades.setText("");
+    }
+    
+    private void grabar() {
+        String nacionalidad = tf_id_nacionalidades.getText();
+        String descripcion = tf_descripcion.getText();
+        
+        String sql = "insert into nacionalidades(id_nacionalidades,descripcion) values ("
+                + nacionalidad + ","
+                + "\"" + descripcion + "\")";
+        
+        connect_and_catch(sql, "Registro dado de alta con exito");                            
+    }
+    
+    private void modificar() {
+        
+    }
+    
+    private void borrar() {
+        String id = tf_id_nacionalidades.getText();        
+        String sql = "delete from nacionalidades where id_nacionalidades = "
+                + id + ";";        
+        connect_and_catch(sql,"Registro borrado con exito");        
+    }
+    
+    private void consultar() {
+        String id = tf_id_nacionalidades.getText();
+        
+        try{            
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);            
+            PreparedStatement stmt = null;            
+            
+            ResultSet table;           
+            String sql = "select * from nacionalidades where "
+                    + "id_nacionalidades = " + id;                    
+            stmt = con.prepareStatement(sql);            
+            table = stmt.executeQuery();        
+            while (table.next()){
+                tf_descripcion.setText(table.getString(2));                
+            }
+            
+        }catch(ClassNotFoundException e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }catch(SQLException e2){
+            JOptionPane.showMessageDialog(null,e2);
+        }catch(Exception e3){
+            JOptionPane.showMessageDialog(null,e3);
+        }
+    }
+    
+    private void salir() {
+        
+    }
+    
+    private void connect_and_catch(String sql, String mensaje){
+        try{            
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);            
+            PreparedStatement stmt = null;            
+            stmt=con.prepareStatement(sql);
+            int sw=stmt.executeUpdate();            
+            if(sw!=0){
+                JOptionPane.showMessageDialog(null,mensaje);
+                nuevo();
+            }                        
+        }catch(ClassNotFoundException e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }catch(SQLException e2){
+            JOptionPane.showMessageDialog(null,e2);
+        }catch(Exception e3){
+            JOptionPane.showMessageDialog(null,e3);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton button_delete;
+    private javax.swing.JButton button_exit;
+    private javax.swing.JButton button_modify;
+    private javax.swing.JButton button_new;
+    private javax.swing.JButton button_save;
+    private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField tf_descripcion;
+    private javax.swing.JTextField tf_id_nacionalidades;
     // End of variables declaration//GEN-END:variables
 }

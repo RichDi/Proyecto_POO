@@ -5,6 +5,13 @@
  */
 package proyecto_poo;
 
+import com.mysql.jdbc.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author drdr_
@@ -28,66 +35,83 @@ public class Autores extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tf_id_autor = new javax.swing.JTextField();
+        tf_nombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tf_id_nacionalidad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        tf_email = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        button_new = new javax.swing.JButton();
+        button_save = new javax.swing.JButton();
+        button_delete = new javax.swing.JButton();
+        button_modify = new javax.swing.JButton();
+        button_select = new javax.swing.JButton();
+        button_exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("id_autor");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tf_id_autor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tf_id_autorActionPerformed(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tf_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tf_nombreActionPerformed(evt);
             }
         });
 
         jLabel2.setText("nombre");
 
+        tf_id_nacionalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_id_nacionalidadActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Id_Nacionalidad");
+
+        tf_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_emailActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("email");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/nuevo-icono-5549-32.png"))); // NOI18N
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/rss-registrarse-pantalla-18-icono-5317-32.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        button_new.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/nuevo-icono-5549-32.png"))); // NOI18N
+        button_new.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                button_newActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
-
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        button_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/rss-registrarse-pantalla-18-icono-5317-32.png"))); // NOI18N
+        button_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                button_saveActionPerformed(evt);
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+
+        button_modify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
+
+        button_select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
+        button_select.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                button_selectActionPerformed(evt);
+            }
+        });
+
+        button_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
+        button_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_exitActionPerformed(evt);
             }
         });
 
@@ -98,30 +122,30 @@ public class Autores extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_delete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(button_new, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 8, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(tf_id_nacionalidad, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_id_autor, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_email, javax.swing.GroupLayout.Alignment.LEADING))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -130,54 +154,86 @@ public class Autores extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_id_autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_id_nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1))
+                    .addComponent(button_save)
+                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(button_new))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton3))
+                    .addComponent(button_select)
+                    .addComponent(button_exit)
+                    .addComponent(button_delete))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void tf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nombreActionPerformed
+        String nulo = "";
+        if (tf_nombre.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"El nombre es requerido");
+        }else{
+            tf_nombre.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_tf_nombreActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void tf_id_autorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_autorActionPerformed
+        String nulo = "";
+        if (tf_id_autor.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"El id_autor es requerido");
+        }else{
+            tf_id_autor.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_tf_id_autorActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_button_saveActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_button_exitActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
+        consultar();
+    }//GEN-LAST:event_button_selectActionPerformed
+
+    private void tf_id_nacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_nacionalidadActionPerformed
+        String nulo = "";
+        if (tf_id_nacionalidad.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"El id_nacionalidad es requerido");
+        }else{
+            tf_id_nacionalidad.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_tf_id_nacionalidadActionPerformed
+
+    private void tf_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_emailActionPerformed
+        String nulo = "";
+        if (tf_email.getText().equals(nulo)){
+            JOptionPane.showMessageDialog(null,"El email es requerido");
+        }else{
+            tf_email.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_tf_emailActionPerformed
+
+    private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
+        nuevo();
+    }//GEN-LAST:event_button_newActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,19 +271,120 @@ public class Autores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton button_delete;
+    private javax.swing.JButton button_exit;
+    private javax.swing.JButton button_modify;
+    private javax.swing.JButton button_new;
+    private javax.swing.JButton button_save;
+    private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField tf_email;
+    private javax.swing.JTextField tf_id_autor;
+    private javax.swing.JTextField tf_id_nacionalidad;
+    private javax.swing.JTextField tf_nombre;
     // End of variables declaration//GEN-END:variables
+
+    private void nuevo() {
+        tf_email.setText("");
+        tf_id_autor.setText("");
+        tf_id_nacionalidad.setText("");
+        tf_nombre.setText("");
+    }
+    
+    private void grabar() {
+        
+        String id_autor = tf_id_autor.getText();
+        String id_nacionalidad = tf_id_nacionalidad.getText();
+        String nombre = tf_nombre.getText();
+        String email = tf_email.getText();
+        
+        String sql = "insert into autores(id_autores,nombre,id_nacionalidad,email) values ("
+                + id_autor + ","
+                + "\"" + nombre + "\""
+                + id_nacionalidad + ","
+                + "\"" + email + "\")";
+        
+        connect_and_catch(sql, "Registro dado de alta con exito");                            
+    }
+    
+    private void modificar() {
+        String id_autor = tf_id_autor.getText();
+        String id_nacionalidad = tf_id_nacionalidad.getText();
+        String nombre = tf_nombre.getText();
+        String email = tf_email.getText();
+        
+        String sql = " udpate generos set "
+                + " id_nacionalidad = " + id_nacionalidad + ","
+                + " nombre = " + nombre + ","
+                + " email = " + email
+                + " where id_autor = " + id_autor;
+        
+        connect_and_catch(sql,"Reigstro modificado con exito");
+    }
+    
+    private void borrar() {
+        String id = tf_id_autor.getText();        
+        String sql = "delete from autor where id_autores = "
+                + id + ";";        
+        connect_and_catch(sql,"Registro borrado con exito");        
+    }
+    
+    private void consultar() {
+        
+        String id_autores = tf_id_autor.getText();
+        
+        try{            
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);            
+            PreparedStatement stmt = null;            
+            
+            ResultSet table;           
+            String sql = "select * from autores where "
+                    + "id_autores = " + id_autores;                    
+            stmt = con.prepareStatement(sql);            
+            table = stmt.executeQuery();        
+            while (table.next()){
+                tf_nombre.setText(table.getString(2));
+                tf_id_nacionalidad.setText(table.getString(3));
+                tf_email.setText(table.getString(4));
+            }
+            
+        }catch(ClassNotFoundException e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }catch(SQLException e2){
+            JOptionPane.showMessageDialog(null,e2);
+        }catch(Exception e3){
+            JOptionPane.showMessageDialog(null,e3);
+        }
+        
+    }
+    
+    private void salir() {
+        
+    }
+    
+    private void connect_and_catch(String sql, String mensaje){
+        try{            
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);            
+            PreparedStatement stmt = null;            
+            stmt=con.prepareStatement(sql);
+            int sw=stmt.executeUpdate();            
+            if(sw!=0){
+                JOptionPane.showMessageDialog(null,mensaje);
+                nuevo();
+            }                        
+        }catch(ClassNotFoundException e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }catch(SQLException e2){
+            JOptionPane.showMessageDialog(null,e2);
+        }catch(Exception e3){
+            JOptionPane.showMessageDialog(null,e3);
+        }
+    }
 }
