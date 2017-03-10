@@ -52,6 +52,8 @@ public class Editoriales extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         tf_contacto = new javax.swing.JTextField();
         tf_telefonos = new javax.swing.JTextField();
+        button_search = new javax.swing.JButton();
+        button_print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +86,11 @@ public class Editoriales extends javax.swing.JFrame {
         });
 
         button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+        button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_deleteActionPerformed(evt);
+            }
+        });
 
         tf_id_editorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +147,15 @@ public class Editoriales extends javax.swing.JFrame {
             }
         });
 
+        button_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951801_search.png"))); // NOI18N
+        button_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_searchActionPerformed(evt);
+            }
+        });
+
+        button_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951775_print.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,13 +172,13 @@ public class Editoriales extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_nombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                             .addComponent(tf_direccion, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tf_email)
                             .addComponent(tf_id_editorial)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_delete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(button_delete, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                             .addComponent(button_new, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +187,11 @@ public class Editoriales extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(button_print, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -212,14 +232,20 @@ public class Editoriales extends javax.swing.JFrame {
                     .addComponent(tf_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_save)
-                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_new))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_select)
-                    .addComponent(button_exit)
-                    .addComponent(button_delete))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_save)
+                            .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button_new))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_select)
+                            .addComponent(button_exit)
+                            .addComponent(button_delete)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button_print)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_search)))
                 .addContainerGap())
         );
 
@@ -227,15 +253,15 @@ public class Editoriales extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
-        // TODO add your handling code here:
+        salir();
     }//GEN-LAST:event_button_exitActionPerformed
 
     private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
-        // TODO add your handling code here:
+        consultar();
     }//GEN-LAST:event_button_selectActionPerformed
 
     private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
-        
+        grabar();
     }//GEN-LAST:event_button_saveActionPerformed
 
     private void tf_id_editorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_editorialActionPerformed
@@ -299,12 +325,21 @@ public class Editoriales extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_contactoActionPerformed
 
     private void button_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modifyActionPerformed
-        // TODO add your handling code here:
+        modificar();
     }//GEN-LAST:event_button_modifyActionPerformed
 
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
         nuevo();
     }//GEN-LAST:event_button_newActionPerformed
+
+    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
+        Editoriales_table et = new Editoriales_table();
+        et.setVisible(true);
+    }//GEN-LAST:event_button_searchActionPerformed
+
+    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+        borrar();
+    }//GEN-LAST:event_button_deleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,7 +394,7 @@ public class Editoriales extends javax.swing.JFrame {
         String telefonos = tf_telefonos.getText();
         
         
-        String sql = "insert into libros(id_editoriales,nombre,direccion,email,telefonos,contacto) values ("                
+        String sql = "insert into editoriales(id_editoriales,nombre,direccion,email,telefonos,contacto) values ("                
                 + id_editorial + ","
                 + "\"" + nombre + "\","
                 + "\"" + direccion + "\","
@@ -372,6 +407,23 @@ public class Editoriales extends javax.swing.JFrame {
     }
     
     private void modificar() {
+        
+        String contacto = tf_contacto.getText();
+        String direccion = tf_direccion.getText();
+        String email = tf_email.getText();
+        String id_editorial = tf_id_editorial.getText();
+        String nombre = tf_nombre.getText();
+        String telefonos = tf_telefonos.getText();
+        
+        String sql = "update editoriales set "
+                + " nombre = " + "\"" + nombre + "\","
+                + " direccion = " + "\"" + direccion + "\","
+                + " email = " + "\"" + email + "\","
+                + " telefonos = " + "\"" + telefonos + "\","
+                + " contacto = " + "\"" + contacto 
+                + " where id_editoriales = " + id_editorial + ";";
+        
+        connect_and_catch(sql, "Registro modificado con exito");
         
     }
     
@@ -396,13 +448,12 @@ public class Editoriales extends javax.swing.JFrame {
                     + "id_editoriales = " + id;                    
             stmt = con.prepareStatement(sql);            
             table = stmt.executeQuery();        
-            while (table.next()){
-                tf_id_editorial.setText(table.getString(2));                
-                tf_nombre.setText(table.getString(3));                
-                tf_direccion.setText(table.getString(4));                
+            while (table.next()){                                
+                tf_nombre.setText(table.getString(2));                
+                tf_direccion.setText(table.getString(3));                
+                tf_email.setText(table.getString(4));
                 tf_telefonos.setText(table.getString(5));                
-                tf_contacto.setText(table.getString(6));                
-                
+                tf_contacto.setText(table.getString(6));                                
             }
             
         }catch(ClassNotFoundException e1){
@@ -415,7 +466,7 @@ public class Editoriales extends javax.swing.JFrame {
     }
     
     private void salir() {
-        
+        this.setVisible(false);
     }
     
     private void connect_and_catch(String sql, String mensaje){
@@ -444,7 +495,9 @@ public class Editoriales extends javax.swing.JFrame {
     private javax.swing.JButton button_exit;
     private javax.swing.JButton button_modify;
     private javax.swing.JButton button_new;
+    private javax.swing.JButton button_print;
     private javax.swing.JButton button_save;
+    private javax.swing.JButton button_search;
     private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

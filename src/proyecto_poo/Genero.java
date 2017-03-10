@@ -48,6 +48,8 @@ public class Genero extends javax.swing.JFrame {
         button_select = new javax.swing.JButton();
         button_modify = new javax.swing.JButton();
         button_exit = new javax.swing.JButton();
+        button_search = new javax.swing.JButton();
+        button_print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +111,20 @@ public class Genero extends javax.swing.JFrame {
             }
         });
 
+        button_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951801_search.png"))); // NOI18N
+        button_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_searchActionPerformed(evt);
+            }
+        });
+
+        button_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951775_print.png"))); // NOI18N
+        button_print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_printActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,6 +152,10 @@ public class Genero extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_print, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_search, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,14 +171,20 @@ public class Genero extends javax.swing.JFrame {
                     .addComponent(tf_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_save)
-                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_new))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_select)
-                    .addComponent(button_exit)
-                    .addComponent(button_delete))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_save)
+                            .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button_new))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_select)
+                            .addComponent(button_exit)
+                            .addComponent(button_delete)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button_print)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_search)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -170,11 +196,11 @@ public class Genero extends javax.swing.JFrame {
     }//GEN-LAST:event_button_saveActionPerformed
 
     private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
-        // TODO add your handling code here:
+        consultar();
     }//GEN-LAST:event_button_selectActionPerformed
 
     private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
-        // TODO add your handling code here:
+        salir();
     }//GEN-LAST:event_button_exitActionPerformed
 
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
@@ -193,11 +219,11 @@ public class Genero extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_generoActionPerformed
 
     private void button_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modifyActionPerformed
-        // TODO add your handling code here:
+        modificar();
     }//GEN-LAST:event_button_modifyActionPerformed
 
     private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
-        // TODO add your handling code here:
+        borrar();
     }//GEN-LAST:event_button_deleteActionPerformed
 
     private void tf_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_descripcionActionPerformed
@@ -209,6 +235,15 @@ public class Genero extends javax.swing.JFrame {
             tf_descripcion.requestFocusInWindow();
         }
     }//GEN-LAST:event_tf_descripcionActionPerformed
+
+    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
+        Genero_table gw = new Genero_table();
+        gw.setVisible(true);
+    }//GEN-LAST:event_button_searchActionPerformed
+
+    private void button_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_printActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_printActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,7 +285,9 @@ public class Genero extends javax.swing.JFrame {
     private javax.swing.JButton button_exit;
     private javax.swing.JButton button_modify;
     private javax.swing.JButton button_new;
+    private javax.swing.JButton button_print;
     private javax.swing.JButton button_save;
+    private javax.swing.JButton button_search;
     private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -278,10 +315,9 @@ public class Genero extends javax.swing.JFrame {
         String genero = tf_genero.getText();
         String descripcion = tf_descripcion.getText();
         
-        String sql = " udpate generos set "
-                + " descripcion = " + descripcion
+        String sql = " update generos set"
+                + " descripcion = " + "\"" + descripcion + "\""
                 + " where id_generos = " + genero;
-        
         
         connect_and_catch(sql,"Reigstro modificado con exito");
     }
@@ -321,7 +357,7 @@ public class Genero extends javax.swing.JFrame {
     }
     
     private void salir() {
-        
+        this.setVisible(false);
     }
     
     private void connect_and_catch(String sql, String mensaje){

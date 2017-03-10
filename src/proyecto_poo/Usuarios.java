@@ -50,6 +50,8 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tf_password = new javax.swing.JTextField();
         tf_fecha = new javax.swing.JTextField();
+        button_search = new javax.swing.JButton();
+        button_print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +71,11 @@ public class Usuarios extends javax.swing.JFrame {
         });
 
         button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+        button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_deleteActionPerformed(evt);
+            }
+        });
 
         button_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/rss-registrarse-pantalla-18-icono-5317-32.png"))); // NOI18N
         button_save.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +102,11 @@ public class Usuarios extends javax.swing.JFrame {
         });
 
         button_modify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
+        button_modify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_modifyActionPerformed(evt);
+            }
+        });
 
         button_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
         button_exit.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +137,15 @@ public class Usuarios extends javax.swing.JFrame {
             }
         });
 
+        button_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951801_search.png"))); // NOI18N
+        button_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_searchActionPerformed(evt);
+            }
+        });
+
+        button_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951775_print.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,21 +167,26 @@ public class Usuarios extends javax.swing.JFrame {
                             .addComponent(tf_password)
                             .addComponent(tf_id_usuarios)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_delete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_new, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_status)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addComponent(tf_status))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(button_new, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(button_delete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_print, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(button_search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -183,19 +209,25 @@ public class Usuarios extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(tf_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(tf_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tf_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_save)
-                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_new))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_select)
-                    .addComponent(button_exit)
-                    .addComponent(button_delete))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_save)
+                            .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button_new))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_select)
+                            .addComponent(button_exit)
+                            .addComponent(button_delete)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button_print)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_search)))
                 .addContainerGap())
         );
 
@@ -203,7 +235,7 @@ public class Usuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
-        // TODO add your handling code here:
+        grabar();
     }//GEN-LAST:event_button_saveActionPerformed
 
     private void tf_id_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_usuariosActionPerformed
@@ -216,11 +248,11 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_id_usuariosActionPerformed
 
     private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
-        // TODO add your handling code here:
+        consultar();
     }//GEN-LAST:event_button_selectActionPerformed
 
     private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
-        // TODO add your handling code here:
+        salir();
     }//GEN-LAST:event_button_exitActionPerformed
 
     private void tf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nombreActionPerformed
@@ -262,6 +294,19 @@ public class Usuarios extends javax.swing.JFrame {
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
         nuevo();
     }//GEN-LAST:event_button_newActionPerformed
+
+    private void button_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modifyActionPerformed
+        modificar();
+    }//GEN-LAST:event_button_modifyActionPerformed
+
+    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+        borrar();
+    }//GEN-LAST:event_button_deleteActionPerformed
+
+    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
+        Usuarios_table ut = new Usuarios_table();
+        ut.setVisible(true);
+    }//GEN-LAST:event_button_searchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,14 +363,27 @@ public class Usuarios extends javax.swing.JFrame {
                 + "\"" + nombre + "\","
                 + "\"" + password + "\","
                 + "\"" + fecha + "\","
-                + "\"" + status + "\","
+                + "\"" + status + "\""
                 + ")";
         
         connect_and_catch(sql, "Registro dado de alta con exito");                            
     }
     
     private void modificar() {
+        String fecha = tf_fecha.getText();
+        String id_usuarios = tf_id_usuarios.getText();
+        String nombre = tf_nombre.getText();
+        String password = tf_password.getText();
+        String status = tf_status.getText();
         
+        String sql = "update usuarios set "
+                + " nombre = " + "\"" + nombre + "\","
+                + " password = " + "\"" + password + "\","
+                + " fecha = " + "\"" + fecha + "\","
+                + " status = " + "\"" + status + "\"" 
+                + " where id_usuarios = " + id_usuarios + ";";
+        
+        connect_and_catch(sql, "Registro modificado con exito");        
     }
     
     private void borrar() {
@@ -365,7 +423,7 @@ public class Usuarios extends javax.swing.JFrame {
     }
     
     private void salir() {
-        
+        this.setVisible(false);
     }
     
     private void connect_and_catch(String sql, String mensaje){
@@ -394,7 +452,9 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JButton button_exit;
     private javax.swing.JButton button_modify;
     private javax.swing.JButton button_new;
+    private javax.swing.JButton button_print;
     private javax.swing.JButton button_save;
+    private javax.swing.JButton button_search;
     private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -3,6 +3,11 @@
   <persistence-unit name="fpoo?zeroDateTimeBehavior=convertToNullPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>proyecto_poo.Autores_1</class>
+    <class>proyecto_poo.Generos</class>
+    <class>proyecto_poo.Libros_1</class>
+    <class>proyecto_poo.Nacionalidades_1</class>
+    <class>proyecto_poo.Usuarios_1</class>
+    <class>proyecto_poo.Editoriales_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fpoo?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.password" value="qonmqa3p"/>

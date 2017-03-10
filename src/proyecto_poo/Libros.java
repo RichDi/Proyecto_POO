@@ -52,6 +52,8 @@ public class Libros extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tf_id_autor = new javax.swing.JTextField();
         tf_id_editorial = new javax.swing.JTextField();
+        button_print = new javax.swing.JButton();
+        button_search = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +79,11 @@ public class Libros extends javax.swing.JFrame {
         });
 
         button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+        button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_deleteActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("id_nacionalidad");
 
@@ -105,6 +112,11 @@ public class Libros extends javax.swing.JFrame {
         });
 
         button_modify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
+        button_modify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_modifyActionPerformed(evt);
+            }
+        });
 
         button_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/salir-de-gnome-icono-5366-32.png"))); // NOI18N
         button_exit.addActionListener(new java.awt.event.ActionListener() {
@@ -135,47 +147,69 @@ public class Libros extends javax.swing.JFrame {
             }
         });
 
+        button_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951775_print.png"))); // NOI18N
+        button_print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_printActionPerformed(evt);
+            }
+        });
+
+        button_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951801_search.png"))); // NOI18N
+        button_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_searchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(button_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button_new, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_print, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(10, 10, 10))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_id_editorial)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_titulo, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_id_editorial, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tf_id_autor)
-                            .addComponent(tf_titulo)
                             .addComponent(tf_id_libros)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_delete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_new, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tf_id_nacionalidad))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(28, 28, 28)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tf_no_paginas)))
+                        .addComponent(tf_no_paginas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_id_nacionalidad)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -206,15 +240,18 @@ public class Libros extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(tf_id_nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_save)
-                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_new))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(button_save)
+                        .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(button_new))
+                    .addComponent(button_print))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button_select)
                     .addComponent(button_exit)
-                    .addComponent(button_delete))
+                    .addComponent(button_delete)
+                    .addComponent(button_search))
                 .addContainerGap())
         );
 
@@ -222,7 +259,7 @@ public class Libros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
-        // TODO add your handling code here:
+        grabar();
     }//GEN-LAST:event_button_saveActionPerformed
 
     private void tf_id_librosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_librosActionPerformed
@@ -235,11 +272,11 @@ public class Libros extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_id_librosActionPerformed
 
     private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
-        // TODO add your handling code here:
+        consultar();
     }//GEN-LAST:event_button_selectActionPerformed
 
     private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
-        // TODO add your handling code here:
+        salir();
     }//GEN-LAST:event_button_exitActionPerformed
 
     private void tf_tituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_tituloActionPerformed
@@ -290,6 +327,23 @@ public class Libros extends javax.swing.JFrame {
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
         nuevo();
     }//GEN-LAST:event_button_newActionPerformed
+
+    private void button_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modifyActionPerformed
+        modificar();
+    }//GEN-LAST:event_button_modifyActionPerformed
+
+    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+        borrar();
+    }//GEN-LAST:event_button_deleteActionPerformed
+
+    private void button_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_printActionPerformed
+        
+    }//GEN-LAST:event_button_printActionPerformed
+
+    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
+        Libros_table lt = new Libros_table();
+        lt.setVisible(true);
+    }//GEN-LAST:event_button_searchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,6 +412,22 @@ public class Libros extends javax.swing.JFrame {
     
     private void modificar() {
         
+        String id_autor = tf_id_autor.getText();
+        String id_nacionalidad = tf_id_nacionalidad.getText();
+        String id_libros = tf_id_libros.getText();
+        String no_paginas = tf_no_paginas.getText();
+        String titulo = tf_titulo.getText();
+        String id_editorial = tf_id_editorial.getText();
+        
+        String sql = "update libros set "
+                + " titulo = " + "\"" + titulo + "\","
+                + " id_editorial = " + id_editorial + ","
+                + " id_autor = " + id_autor + ","
+                + " no_paginas = " + "\"" + no_paginas + "\","
+                + " id_autor = " + id_autor
+                + " where id_libros = " + id_libros + ";";
+        
+        connect_and_catch(sql, "Registro modificado con exito");
     }
     
     private void borrar() {
@@ -400,7 +470,7 @@ public class Libros extends javax.swing.JFrame {
     }
     
     private void salir() {
-        
+        this.setVisible(false);
     }
     
     private void connect_and_catch(String sql, String mensaje){
@@ -429,7 +499,9 @@ public class Libros extends javax.swing.JFrame {
     private javax.swing.JButton button_exit;
     private javax.swing.JButton button_modify;
     private javax.swing.JButton button_new;
+    private javax.swing.JButton button_print;
     private javax.swing.JButton button_save;
+    private javax.swing.JButton button_search;
     private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

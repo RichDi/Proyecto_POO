@@ -44,6 +44,8 @@ public class Nacionalidades extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         tf_descripcion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        button_search = new javax.swing.JButton();
+        button_print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,8 +57,18 @@ public class Nacionalidades extends javax.swing.JFrame {
         });
 
         button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+        button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_deleteActionPerformed(evt);
+            }
+        });
 
         button_modify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
+        button_modify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_modifyActionPerformed(evt);
+            }
+        });
 
         button_select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
         button_select.addActionListener(new java.awt.event.ActionListener() {
@@ -95,17 +107,21 @@ public class Nacionalidades extends javax.swing.JFrame {
 
         jLabel7.setText("id_nacionalidades");
 
+        button_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951801_search.png"))); // NOI18N
+        button_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_searchActionPerformed(evt);
+            }
+        });
+
+        button_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951775_print.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_id_nacionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -118,6 +134,7 @@ public class Nacionalidades extends javax.swing.JFrame {
                                 .addComponent(jLabel8)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_descripcion)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,9 +142,17 @@ public class Nacionalidades extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(tf_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(button_print, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(button_search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_id_nacionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,19 +162,25 @@ public class Nacionalidades extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(tf_id_nacionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(tf_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_save)
-                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_new))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_select)
-                    .addComponent(button_exit)
-                    .addComponent(button_delete))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(tf_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_save)
+                            .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button_new))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_select)
+                            .addComponent(button_exit)
+                            .addComponent(button_delete)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button_print)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_search)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -157,15 +188,15 @@ public class Nacionalidades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
-        // TODO add your handling code here:
+        grabar();
     }//GEN-LAST:event_button_saveActionPerformed
 
     private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
-        // TODO add your handling code here:
+        consultar();
     }//GEN-LAST:event_button_selectActionPerformed
 
     private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
-        // TODO add your handling code here:
+        salir();
     }//GEN-LAST:event_button_exitActionPerformed
 
     private void tf_id_nacionalidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_nacionalidadesActionPerformed
@@ -189,6 +220,19 @@ public class Nacionalidades extends javax.swing.JFrame {
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
         nuevo();
     }//GEN-LAST:event_button_newActionPerformed
+
+    private void button_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modifyActionPerformed
+        modificar();
+    }//GEN-LAST:event_button_modifyActionPerformed
+
+    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+        borrar();
+    }//GEN-LAST:event_button_deleteActionPerformed
+
+    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
+        Nacionalidades_table na = new Nacionalidades_table();
+        na.setVisible(true);
+    }//GEN-LAST:event_button_searchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,7 +286,16 @@ public class Nacionalidades extends javax.swing.JFrame {
     }
     
     private void modificar() {
+        String nacionalidad = tf_id_nacionalidades.getText();
+        String descripcion = tf_descripcion.getText();
         
+        String sql = "update nacionalidades set "
+                + " descripcion = " + "\"" + descripcion + "\"" 
+                + " where id_nacionalidades = " + nacionalidad + ";";
+        
+        System.out.println(sql);
+        
+        connect_and_catch(sql, "Registro modificado con exito");
     }
     
     private void borrar() {
@@ -280,7 +333,7 @@ public class Nacionalidades extends javax.swing.JFrame {
     }
     
     private void salir() {
-        
+        this.setVisible(false);
     }
     
     private void connect_and_catch(String sql, String mensaje){
@@ -309,7 +362,9 @@ public class Nacionalidades extends javax.swing.JFrame {
     private javax.swing.JButton button_exit;
     private javax.swing.JButton button_modify;
     private javax.swing.JButton button_new;
+    private javax.swing.JButton button_print;
     private javax.swing.JButton button_save;
+    private javax.swing.JButton button_search;
     private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

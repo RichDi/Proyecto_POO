@@ -48,6 +48,8 @@ public class Autores extends javax.swing.JFrame {
         button_modify = new javax.swing.JButton();
         button_select = new javax.swing.JButton();
         button_exit = new javax.swing.JButton();
+        button_print = new javax.swing.JButton();
+        button_search = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,8 +100,18 @@ public class Autores extends javax.swing.JFrame {
         });
 
         button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/cerrar-borrar-la-salida-icono-9027-32.png"))); // NOI18N
+        button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_deleteActionPerformed(evt);
+            }
+        });
 
         button_modify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/dibujo-a-lapiz-modificar-escribir-icono-8118-32.png"))); // NOI18N
+        button_modify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_modifyActionPerformed(evt);
+            }
+        });
 
         button_select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/consejos-icono-6588-32.png"))); // NOI18N
         button_select.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +124,20 @@ public class Autores extends javax.swing.JFrame {
         button_exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_exitActionPerformed(evt);
+            }
+        });
+
+        button_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951775_print.png"))); // NOI18N
+        button_print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_printActionPerformed(evt);
+            }
+        });
+
+        button_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951801_search.png"))); // NOI18N
+        button_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_searchActionPerformed(evt);
             }
         });
 
@@ -139,7 +165,11 @@ public class Autores extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(button_modify, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 8, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_print, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_search, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 9, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tf_id_nacionalidad, javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,15 +198,21 @@ public class Autores extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(tf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_save)
-                    .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_new))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_select)
-                    .addComponent(button_exit)
-                    .addComponent(button_delete))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_save)
+                            .addComponent(button_modify, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button_new))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_select)
+                            .addComponent(button_exit)
+                            .addComponent(button_delete)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button_print)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_search)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -202,11 +238,11 @@ public class Autores extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_id_autorActionPerformed
 
     private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
-        // TODO add your handling code here:
+        grabar();
     }//GEN-LAST:event_button_saveActionPerformed
 
     private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
-        // TODO add your handling code here:
+        salir();
     }//GEN-LAST:event_button_exitActionPerformed
 
     private void button_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selectActionPerformed
@@ -234,6 +270,23 @@ public class Autores extends javax.swing.JFrame {
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
         nuevo();
     }//GEN-LAST:event_button_newActionPerformed
+
+    private void button_modifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modifyActionPerformed
+        modificar();
+    }//GEN-LAST:event_button_modifyActionPerformed
+
+    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+        borrar();
+    }//GEN-LAST:event_button_deleteActionPerformed
+
+    private void button_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_printActionPerformed
+
+    }//GEN-LAST:event_button_printActionPerformed
+
+    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
+        Autores_table gw = new Autores_table();
+        gw.setVisible(true);
+    }//GEN-LAST:event_button_searchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,7 +328,9 @@ public class Autores extends javax.swing.JFrame {
     private javax.swing.JButton button_exit;
     private javax.swing.JButton button_modify;
     private javax.swing.JButton button_new;
+    private javax.swing.JButton button_print;
     private javax.swing.JButton button_save;
+    private javax.swing.JButton button_search;
     private javax.swing.JButton button_select;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -303,9 +358,11 @@ public class Autores extends javax.swing.JFrame {
         
         String sql = "insert into autores(id_autores,nombre,id_nacionalidad,email) values ("
                 + id_autor + ","
-                + "\"" + nombre + "\""
+                + "\"" + nombre + "\"" + ","
                 + id_nacionalidad + ","
                 + "\"" + email + "\")";
+        
+        System.out.println(sql);
         
         connect_and_catch(sql, "Registro dado de alta con exito");                            
     }
@@ -316,18 +373,18 @@ public class Autores extends javax.swing.JFrame {
         String nombre = tf_nombre.getText();
         String email = tf_email.getText();
         
-        String sql = " udpate generos set "
-                + " id_nacionalidad = " + id_nacionalidad + ","
-                + " nombre = " + nombre + ","
-                + " email = " + email
-                + " where id_autor = " + id_autor;
+        String sql = " update autores set "
+                + " nombre = " + "\"" + nombre + "\"" + "," 
+                + " id_nacionalidad = " + id_nacionalidad + ","                
+                + " email = " + "\"" + email + "\"" 
+                + " where id_autores = " + id_autor;
         
-        connect_and_catch(sql,"Reigstro modificado con exito");
+        connect_and_catch(sql,"Registro modificado con exito");
     }
     
     private void borrar() {
         String id = tf_id_autor.getText();        
-        String sql = "delete from autor where id_autores = "
+        String sql = "delete from autores where id_autores = "
                 + id + ";";        
         connect_and_catch(sql,"Registro borrado con exito");        
     }
@@ -364,7 +421,7 @@ public class Autores extends javax.swing.JFrame {
     }
     
     private void salir() {
-        
+        this.setVisible(false);
     }
     
     private void connect_and_catch(String sql, String mensaje){
