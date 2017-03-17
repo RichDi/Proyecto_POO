@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Tables;
+
+import proyecto_poo.Forms.Usuarios;
 
 /**
  *
@@ -54,6 +56,11 @@ public class Usuarios_table extends javax.swing.JFrame {
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
 
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,6 +84,15 @@ public class Usuarios_table extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int column = jTable1.getSelectedColumn();
+        int fila = jTable1.getSelectedRow();
+        int valor = (int) jTable1.getValueAt(fila, column);
+        
+        Usuarios a = new Usuarios(valor);
+        a.setVisible(true);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -117,7 +133,7 @@ public class Usuarios_table extends javax.swing.JFrame {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.util.List<proyecto_poo.Usuarios_1> usuarios_1List;
+    private java.util.List<proyecto_poo.Forms.Usuarios_1> usuarios_1List;
     private javax.persistence.Query usuarios_1Query;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

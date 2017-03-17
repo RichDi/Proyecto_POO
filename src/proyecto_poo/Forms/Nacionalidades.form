@@ -207,6 +207,9 @@
           <Image iconType="3" name="/proyecto_poo/iconos/1488951775_print.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_printActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

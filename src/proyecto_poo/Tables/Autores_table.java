@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Tables;
 
 import javax.swing.JOptionPane;
+import proyecto_poo.Forms.Autores;
 
 /**
  *
@@ -87,8 +88,8 @@ public class Autores_table extends javax.swing.JFrame {
         int fila = jTable1.getSelectedRow();
         int valor = (int) jTable1.getValueAt(fila, column);
         
-        JOptionPane.showMessageDialog(null, valor);
-        
+        Autores a = new Autores(valor);
+        a.setVisible(true);
                 
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -128,7 +129,7 @@ public class Autores_table extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.util.List<proyecto_poo.Autores_1> autores_1List;
+    private java.util.List<proyecto_poo.Forms.Autores_1> autores_1List;
     private javax.persistence.Query autores_1Query;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;

@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Tables;
+
+import proyecto_poo.Forms.Libros;
 
 /**
  *
  * @author drdr_
  */
-public class Nacionalidades_table extends javax.swing.JFrame {
+public class Libros_table extends javax.swing.JFrame {
 
     /**
-     * Creates new form Nacionalidades_table
+     * Creates new form Libros_table
      */
-    public Nacionalidades_table() {
+    public Libros_table() {
         initComponents();
     }
 
@@ -29,22 +31,39 @@ public class Nacionalidades_table extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        nacionalidades_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT n FROM Nacionalidades_1 n");
-        nacionalidades_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : nacionalidades_1Query.getResultList();
+        libros_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT l FROM Libros_1 l");
+        libros_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : libros_1Query.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, nacionalidades_1List, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idNacionalidades}"));
-        columnBinding.setColumnName("Id Nacionalidades");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, libros_1List, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idLibros}"));
+        columnBinding.setColumnName("Id Libros");
         columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${descripcion}"));
-        columnBinding.setColumnName("Descripcion");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${titulo}"));
+        columnBinding.setColumnName("Titulo");
         columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEditorial}"));
+        columnBinding.setColumnName("Id Editorial");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idAutor}"));
+        columnBinding.setColumnName("Id Autor");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${noPaginas}"));
+        columnBinding.setColumnName("No Paginas");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idNacionalidad}"));
+        columnBinding.setColumnName("Id Nacionalidad");
+        columnBinding.setColumnClass(Integer.class);
         bindingGroup.addBinding(jTableBinding);
 
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -69,6 +88,15 @@ public class Nacionalidades_table extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int column = jTable1.getSelectedColumn();
+        int fila = jTable1.getSelectedRow();
+        int valor = (int) jTable1.getValueAt(fila, column);
+        
+        Libros a = new Libros(valor);
+        a.setVisible(true);
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -86,20 +114,20 @@ public class Nacionalidades_table extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Libros_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Libros_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Libros_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Libros_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Nacionalidades_table().setVisible(true);
+                new Libros_table().setVisible(true);
             }
         });
     }
@@ -108,8 +136,8 @@ public class Nacionalidades_table extends javax.swing.JFrame {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.util.List<proyecto_poo.Nacionalidades_1> nacionalidades_1List;
-    private javax.persistence.Query nacionalidades_1Query;
+    private java.util.List<proyecto_poo.Forms.Libros_1> libros_1List;
+    private javax.persistence.Query libros_1Query;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

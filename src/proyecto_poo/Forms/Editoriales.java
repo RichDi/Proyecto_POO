@@ -3,14 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Forms;
 
+import proyecto_poo.Tables.Editoriales_table;
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -23,6 +32,12 @@ public class Editoriales extends javax.swing.JFrame {
      */
     public Editoriales() {
         initComponents();
+    }
+    
+    public Editoriales(int a) {
+        initComponents();        
+        tf_id_editorial.setText(String.valueOf(a));
+        consultar();
     }
 
     /**
@@ -155,6 +170,11 @@ public class Editoriales extends javax.swing.JFrame {
         });
 
         button_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/1488951775_print.png"))); // NOI18N
+        button_print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_printActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -341,6 +361,10 @@ public class Editoriales extends javax.swing.JFrame {
         borrar();
     }//GEN-LAST:event_button_deleteActionPerformed
 
+    private void button_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_printActionPerformed
+        imprimir();
+    }//GEN-LAST:event_button_printActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -465,6 +489,26 @@ public class Editoriales extends javax.swing.JFrame {
         }
     }
     
+    private void imprimir() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);
+            String dir = "C:\\Users\\drdr_\\Documents\\editoriales_table.jrxml";
+            JasperReport report = JasperCompileManager.compileReport(dir);
+            JasperPrint mostrarReporte = JasperFillManager.fillReport(report,null,con);
+            JasperViewer.viewReport(mostrarReporte);
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     private void salir() {
         this.setVisible(false);
     }
@@ -474,9 +518,9 @@ public class Editoriales extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
             Connection con = (Connection) DriverManager.getConnection(cadena);            
-            PreparedStatement stmt = null;            
+            PreparedStatement stmt = null;
             stmt=con.prepareStatement(sql);
-            int sw=stmt.executeUpdate();            
+            int sw=stmt.executeUpdate();         
             if(sw!=0){
                 JOptionPane.showMessageDialog(null,mensaje);
                 nuevo();

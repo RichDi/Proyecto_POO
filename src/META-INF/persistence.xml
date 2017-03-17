@@ -2,12 +2,12 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="fpoo?zeroDateTimeBehavior=convertToNullPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>proyecto_poo.Autores_1</class>
-    <class>proyecto_poo.Generos</class>
-    <class>proyecto_poo.Libros_1</class>
-    <class>proyecto_poo.Nacionalidades_1</class>
-    <class>proyecto_poo.Usuarios_1</class>
-    <class>proyecto_poo.Editoriales_1</class>
+    <class>proyecto_poo.Forms.Libros_1</class>
+    <class>proyecto_poo.Forms.Autores_1</class>
+    <class>proyecto_poo.Forms.Generos</class>
+    <class>proyecto_poo.Forms.Nacionalidades_1</class>
+    <class>proyecto_poo.Forms.Usuarios_1</class>
+    <class>proyecto_poo.Forms.Editoriales_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fpoo?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.password" value="qonmqa3p"/>

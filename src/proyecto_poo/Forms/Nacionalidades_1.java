@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Forms;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -22,12 +22,12 @@ import javax.persistence.Transient;
  * @author drdr_
  */
 @Entity
-@Table(name = "generos", catalog = "fpoo", schema = "")
+@Table(name = "nacionalidades", catalog = "fpoo", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Generos.findAll", query = "SELECT g FROM Generos g"),
-    @NamedQuery(name = "Generos.findByIdGeneros", query = "SELECT g FROM Generos g WHERE g.idGeneros = :idGeneros"),
-    @NamedQuery(name = "Generos.findByDescripcion", query = "SELECT g FROM Generos g WHERE g.descripcion = :descripcion")})
-public class Generos implements Serializable {
+    @NamedQuery(name = "Nacionalidades_1.findAll", query = "SELECT n FROM Nacionalidades_1 n"),
+    @NamedQuery(name = "Nacionalidades_1.findByIdNacionalidades", query = "SELECT n FROM Nacionalidades_1 n WHERE n.idNacionalidades = :idNacionalidades"),
+    @NamedQuery(name = "Nacionalidades_1.findByDescripcion", query = "SELECT n FROM Nacionalidades_1 n WHERE n.descripcion = :descripcion")})
+public class Nacionalidades_1 implements Serializable {
 
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
@@ -35,26 +35,26 @@ public class Generos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id_generos")
-    private Integer idGeneros;
+    @Column(name = "id_nacionalidades")
+    private Integer idNacionalidades;
     @Column(name = "descripcion")
     private String descripcion;
 
-    public Generos() {
+    public Nacionalidades_1() {
     }
 
-    public Generos(Integer idGeneros) {
-        this.idGeneros = idGeneros;
+    public Nacionalidades_1(Integer idNacionalidades) {
+        this.idNacionalidades = idNacionalidades;
     }
 
-    public Integer getIdGeneros() {
-        return idGeneros;
+    public Integer getIdNacionalidades() {
+        return idNacionalidades;
     }
 
-    public void setIdGeneros(Integer idGeneros) {
-        Integer oldIdGeneros = this.idGeneros;
-        this.idGeneros = idGeneros;
-        changeSupport.firePropertyChange("idGeneros", oldIdGeneros, idGeneros);
+    public void setIdNacionalidades(Integer idNacionalidades) {
+        Integer oldIdNacionalidades = this.idNacionalidades;
+        this.idNacionalidades = idNacionalidades;
+        changeSupport.firePropertyChange("idNacionalidades", oldIdNacionalidades, idNacionalidades);
     }
 
     public String getDescripcion() {
@@ -70,18 +70,18 @@ public class Generos implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idGeneros != null ? idGeneros.hashCode() : 0);
+        hash += (idNacionalidades != null ? idNacionalidades.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Generos)) {
+        if (!(object instanceof Nacionalidades_1)) {
             return false;
         }
-        Generos other = (Generos) object;
-        if ((this.idGeneros == null && other.idGeneros != null) || (this.idGeneros != null && !this.idGeneros.equals(other.idGeneros))) {
+        Nacionalidades_1 other = (Nacionalidades_1) object;
+        if ((this.idNacionalidades == null && other.idNacionalidades != null) || (this.idNacionalidades != null && !this.idNacionalidades.equals(other.idNacionalidades))) {
             return false;
         }
         return true;
@@ -89,7 +89,7 @@ public class Generos implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto_poo.Generos[ idGeneros=" + idGeneros + " ]";
+        return "proyecto_poo.Nacionalidades_1[ idNacionalidades=" + idNacionalidades + " ]";
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

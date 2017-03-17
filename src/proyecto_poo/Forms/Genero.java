@@ -3,11 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Forms;
 
+import proyecto_poo.Tables.Genero_table;
 import com.mysql.jdbc.Connection;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 
@@ -24,11 +33,12 @@ public class Genero extends javax.swing.JFrame {
         initComponents();
     }
     
-    public Genero(int sw) {
+    public Genero(int a) {
         initComponents();
-        tf_genero.setText(String.valueOf(sw));        
+        tf_genero.setText(String.valueOf(a));
+        consultar();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -242,7 +252,7 @@ public class Genero extends javax.swing.JFrame {
     }//GEN-LAST:event_button_searchActionPerformed
 
     private void button_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_printActionPerformed
-        // TODO add your handling code here:
+        imprimir();
     }//GEN-LAST:event_button_printActionPerformed
 
     /**
@@ -354,6 +364,26 @@ public class Genero extends javax.swing.JFrame {
         }catch(Exception e3){
             JOptionPane.showMessageDialog(null,e3);
         }
+    }
+    
+    private void imprimir() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);
+            String dir = "C:\\Users\\drdr_\\Documents\\generos_table.jrxml";
+            JasperReport report = JasperCompileManager.compileReport(dir);
+            JasperPrint mostrarReporte = JasperFillManager.fillReport(report,null,con);
+            JasperViewer.viewReport(mostrarReporte);
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     private void salir() {

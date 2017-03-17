@@ -7,22 +7,22 @@
         <Property name="persistenceUnit" type="java.lang.String" value="fpoo?zeroDateTimeBehavior=convertToNullPU"/>
       </Properties>
     </Component>
-    <Component class="javax.persistence.Query" name="nacionalidades_1Query">
+    <Component class="javax.persistence.Query" name="editoriales_1Query">
       <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT n FROM Nacionalidades_1 n"/>
+        <Property name="query" type="java.lang.String" value="SELECT e FROM Editoriales_1 e"/>
         <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
           <ComponentRef name="entityManager"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="java.util.List" name="nacionalidades_1List">
+    <Component class="java.util.List" name="editoriales_1List">
       <Properties>
         <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="nacionalidades_1Query"/>
+          <ComponentRef name="editoriales_1Query"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyecto_poo.Nacionalidades_1&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyecto_poo.Forms.Editoriales_1&gt;"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -75,15 +75,30 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="jTable1">
           <BindingProperties>
-            <BindingProperty name="elements" source="nacionalidades_1List" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
-              <Subbinding sourcePath="${idNacionalidades}">
+            <BindingProperty name="elements" source="editoriales_1List" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
+              <Subbinding sourcePath="${idEditoriales}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
               </Subbinding>
-              <Subbinding sourcePath="${descripcion}">
+              <Subbinding sourcePath="${nombre}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${direccion}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${email}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${telefonos}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${contacto}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
             </BindingProperty>
           </BindingProperties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

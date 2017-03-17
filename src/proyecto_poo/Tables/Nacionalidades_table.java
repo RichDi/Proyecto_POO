@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Tables;
+
+import proyecto_poo.Forms.Nacionalidades;
 
 /**
  *
  * @author drdr_
  */
-public class Editoriales_table extends javax.swing.JFrame {
+public class Nacionalidades_table extends javax.swing.JFrame {
 
     /**
-     * Creates new form Editoriales_table
+     * Creates new form Nacionalidades_table
      */
-    public Editoriales_table() {
+    public Nacionalidades_table() {
         initComponents();
     }
 
@@ -29,34 +31,27 @@ public class Editoriales_table extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        editoriales_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Editoriales_1 e");
-        editoriales_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : editoriales_1Query.getResultList();
+        nacionalidades_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT n FROM Nacionalidades_1 n");
+        nacionalidades_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : nacionalidades_1Query.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, editoriales_1List, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEditoriales}"));
-        columnBinding.setColumnName("Id Editoriales");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, nacionalidades_1List, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idNacionalidades}"));
+        columnBinding.setColumnName("Id Nacionalidades");
         columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
-        columnBinding.setColumnName("Nombre");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${direccion}"));
-        columnBinding.setColumnName("Direccion");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${email}"));
-        columnBinding.setColumnName("Email");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefonos}"));
-        columnBinding.setColumnName("Telefonos");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${contacto}"));
-        columnBinding.setColumnName("Contacto");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${descripcion}"));
+        columnBinding.setColumnName("Descripcion");
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
 
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -81,6 +76,15 @@ public class Editoriales_table extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int column = jTable1.getSelectedColumn();
+        int fila = jTable1.getSelectedRow();
+        int valor = (int) jTable1.getValueAt(fila, column);
+        
+        Nacionalidades a = new Nacionalidades(valor);
+        a.setVisible(true);
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -98,30 +102,30 @@ public class Editoriales_table extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Nacionalidades_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Editoriales_table().setVisible(true);
+                new Nacionalidades_table().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.util.List<proyecto_poo.Editoriales_1> editoriales_1List;
-    private javax.persistence.Query editoriales_1Query;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private java.util.List<proyecto_poo.Forms.Nacionalidades_1> nacionalidades_1List;
+    private javax.persistence.Query nacionalidades_1Query;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

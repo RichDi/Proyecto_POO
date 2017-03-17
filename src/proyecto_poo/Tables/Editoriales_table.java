@@ -3,18 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo;
+package proyecto_poo.Tables;
+
+import javax.swing.JOptionPane;
+import proyecto_poo.Forms.Autores;
+import proyecto_poo.Forms.Editoriales;
 
 /**
  *
  * @author drdr_
  */
-public class Genero_table extends javax.swing.JFrame {
+public class Editoriales_table extends javax.swing.JFrame {
 
     /**
-     * Creates new form Genero_table
+     * Creates new form Editoriales_table
      */
-    public Genero_table() {
+    public Editoriales_table() {
         initComponents();
     }
 
@@ -29,22 +33,39 @@ public class Genero_table extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        generosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT g FROM Generos g");
-        generosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : generosQuery.getResultList();
+        editoriales_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Editoriales_1 e");
+        editoriales_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : editoriales_1Query.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, generosList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idGeneros}"));
-        columnBinding.setColumnName("Id Generos");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, editoriales_1List, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEditoriales}"));
+        columnBinding.setColumnName("Id Editoriales");
         columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${descripcion}"));
-        columnBinding.setColumnName("Descripcion");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
+        columnBinding.setColumnName("Nombre");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${direccion}"));
+        columnBinding.setColumnName("Direccion");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${email}"));
+        columnBinding.setColumnName("Email");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefonos}"));
+        columnBinding.setColumnName("Telefonos");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${contacto}"));
+        columnBinding.setColumnName("Contacto");
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
 
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -69,6 +90,15 @@ public class Genero_table extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int column = jTable1.getSelectedColumn();
+        int fila = jTable1.getSelectedRow();
+        int valor = (int) jTable1.getValueAt(fila, column);
+                
+        Editoriales a = new Editoriales(valor);
+        a.setVisible(true);
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -86,28 +116,28 @@ public class Genero_table extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Genero_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Genero_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Genero_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Genero_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editoriales_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Genero_table().setVisible(true);
+                new Editoriales_table().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.util.List<proyecto_poo.Forms.Editoriales_1> editoriales_1List;
+    private javax.persistence.Query editoriales_1Query;
     private javax.persistence.EntityManager entityManager;
-    private java.util.List<proyecto_poo.Generos> generosList;
-    private javax.persistence.Query generosQuery;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
