@@ -418,7 +418,7 @@ public class Editoriales extends javax.swing.JFrame {
         String telefonos = tf_telefonos.getText();
         
         
-        String sql = "insert into editoriales(id_editoriales,nombre,direccion,email,telefonos,contacto) values ("                
+        String sql = "insert into editoriales(id_editorial,nombre,direccion,email,telefonos,contacto) values ("                
                 + id_editorial + ","
                 + "\"" + nombre + "\","
                 + "\"" + direccion + "\","
@@ -445,7 +445,7 @@ public class Editoriales extends javax.swing.JFrame {
                 + " email = " + "\"" + email + "\","
                 + " telefonos = " + "\"" + telefonos + "\","
                 + " contacto = " + "\"" + contacto 
-                + " where id_editoriales = " + id_editorial + ";";
+                + " where id_editorial = " + id_editorial + ";";
         
         connect_and_catch(sql, "Registro modificado con exito");
         
@@ -453,7 +453,7 @@ public class Editoriales extends javax.swing.JFrame {
     
     private void borrar() {
         String id = tf_id_editorial.getText();        
-        String sql = "delete from editoriales where id_editoriales = "
+        String sql = "delete from editoriales where id_editorial = "
                 + id + ";";        
         connect_and_catch(sql,"Reigstro borrado con exito");        
     }
@@ -469,7 +469,7 @@ public class Editoriales extends javax.swing.JFrame {
             
             ResultSet table;           
             String sql = "select * from editoriales where "
-                    + "id_editoriales = " + id;                    
+                    + "id_editorial = " + id;                    
             stmt = con.prepareStatement(sql);            
             table = stmt.executeQuery();        
             while (table.next()){                                

@@ -371,7 +371,7 @@ public class Autores extends javax.swing.JFrame {
         String nombre = tf_nombre.getText();
         String email = tf_email.getText();
         
-        String sql = "insert into autores(id_autores,nombre,id_nacionalidad,email) values ("
+        String sql = "insert into autores(id_autor,nombre,id_nacionalidad,email) values ("
                 + id_autor + ","
                 + "\"" + nombre + "\"" + ","
                 + id_nacionalidad + ","
@@ -392,14 +392,14 @@ public class Autores extends javax.swing.JFrame {
                 + " nombre = " + "\"" + nombre + "\"" + "," 
                 + " id_nacionalidad = " + id_nacionalidad + ","                
                 + " email = " + "\"" + email + "\"" 
-                + " where id_autores = " + id_autor;
+                + " where id_autor = " + id_autor;
         
         connect_and_catch(sql,"Registro modificado con exito");
     }
     
     private void borrar() {
         String id = tf_id_autor.getText();        
-        String sql = "delete from autores where id_autores = "
+        String sql = "delete from autores where id_autor = "
                 + id + ";";        
         connect_and_catch(sql,"Registro borrado con exito");        
     }
@@ -416,7 +416,7 @@ public class Autores extends javax.swing.JFrame {
             
             ResultSet table;           
             String sql = "select * from autores where "
-                    + "id_autores = " + id_autores;                    
+                    + "id_autor = " + id_autores;                    
             stmt = con.prepareStatement(sql);            
             table = stmt.executeQuery();        
             while (table.next()){

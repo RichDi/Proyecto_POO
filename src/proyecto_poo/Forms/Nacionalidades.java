@@ -302,7 +302,7 @@ public class Nacionalidades extends javax.swing.JFrame {
         String nacionalidad = tf_id_nacionalidades.getText();
         String descripcion = tf_descripcion.getText();
         
-        String sql = "insert into nacionalidades(id_nacionalidades,descripcion) values ("
+        String sql = "insert into nacionalidades(id_nacionalidad,descripcion) values ("
                 + nacionalidad + ","
                 + "\"" + descripcion + "\")";
         
@@ -315,7 +315,7 @@ public class Nacionalidades extends javax.swing.JFrame {
         
         String sql = "update nacionalidades set "
                 + " descripcion = " + "\"" + descripcion + "\"" 
-                + " where id_nacionalidades = " + nacionalidad + ";";
+                + " where id_nacionalidad = " + nacionalidad + ";";
         
         System.out.println(sql);
         
@@ -324,7 +324,7 @@ public class Nacionalidades extends javax.swing.JFrame {
     
     private void borrar() {
         String id = tf_id_nacionalidades.getText();        
-        String sql = "delete from nacionalidades where id_nacionalidades = "
+        String sql = "delete from nacionalidades where id_nacionalidad = "
                 + id + ";";        
         connect_and_catch(sql,"Registro borrado con exito");        
     }
@@ -340,7 +340,7 @@ public class Nacionalidades extends javax.swing.JFrame {
             
             ResultSet table;           
             String sql = "select * from nacionalidades where "
-                    + "id_nacionalidades = " + id;                    
+                    + "id_nacionalidad = " + id;                    
             stmt = con.prepareStatement(sql);            
             table = stmt.executeQuery();        
             while (table.next()){

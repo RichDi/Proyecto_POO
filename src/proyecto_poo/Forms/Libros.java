@@ -279,7 +279,7 @@ public class Libros extends javax.swing.JFrame {
     private void tf_id_librosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_librosActionPerformed
         String nulo = "";
         if (tf_id_libros.getText().equals(nulo)){
-            JOptionPane.showMessageDialog(null,"El id_libros es requerido");
+            JOptionPane.showMessageDialog(null,"El id_libro es requerido");
         }else{
             tf_id_libros.requestFocusInWindow();
         }
@@ -412,7 +412,7 @@ public class Libros extends javax.swing.JFrame {
         String id_editorial = tf_id_editorial.getText();
         
         
-        String sql = "insert into libros(id_libros,titulo,id_editorial,id_autor,no_paginas,id_nacionalidad) values ("
+        String sql = "insert into libros(id_libro,titulo,id_editorial,id_autor,no_paginas,id_nacionalidad) values ("
                 + id_libros + ","
                 + "\"" + titulo + "\","
                 + id_editorial + ","
@@ -439,14 +439,14 @@ public class Libros extends javax.swing.JFrame {
                 + " id_autor = " + id_autor + ","
                 + " no_paginas = " + "\"" + no_paginas + "\","
                 + " id_autor = " + id_autor
-                + " where id_libros = " + id_libros + ";";
+                + " where id_libro = " + id_libros + ";";
         
         connect_and_catch(sql, "Registro modificado con exito");
     }
     
     private void borrar() {
         String id = tf_id_libros.getText();        
-        String sql = "delete from libros where id_libros = "
+        String sql = "delete from libros where id_libro = "
                 + id + ";";        
         connect_and_catch(sql,"Registro borrado con exito");        
     }
@@ -462,7 +462,7 @@ public class Libros extends javax.swing.JFrame {
             
             ResultSet table;           
             String sql = "select * from libros where "
-                    + "id_libros = " + id;                    
+                    + "id_libro = " + id;                    
             stmt = con.prepareStatement(sql);            
             table = stmt.executeQuery();        
             while (table.next()){

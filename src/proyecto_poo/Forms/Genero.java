@@ -314,7 +314,7 @@ public class Genero extends javax.swing.JFrame {
         String genero = tf_genero.getText();
         String descripcion = tf_descripcion.getText();
         
-        String sql = "insert into generos(id_generos,descripcion) values ("
+        String sql = "insert into generos(id_genero,descripcion) values ("
                 + genero + ","
                 + "\"" + descripcion + "\")";
         
@@ -327,14 +327,14 @@ public class Genero extends javax.swing.JFrame {
         
         String sql = " update generos set"
                 + " descripcion = " + "\"" + descripcion + "\""
-                + " where id_generos = " + genero;
+                + " where id_genero = " + genero;
         
         connect_and_catch(sql,"Reigstro modificado con exito");
     }
     
     private void borrar() {
         String genero = tf_genero.getText();        
-        String sql = "delete from generos where id_generos = "
+        String sql = "delete from generos where id_genero = "
                 + genero + ";";        
         connect_and_catch(sql,"Registro borrado con exito");        
     }
@@ -350,7 +350,7 @@ public class Genero extends javax.swing.JFrame {
             
             ResultSet table;           
             String sql = "select * from generos where "
-                    + "id_generos = " + id;                    
+                    + "id_genero = " + id;                    
             stmt = con.prepareStatement(sql);            
             table = stmt.executeQuery();        
             while (table.next()){

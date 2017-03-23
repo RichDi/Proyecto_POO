@@ -261,7 +261,7 @@ public class Usuarios extends javax.swing.JFrame {
     private void tf_id_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_usuariosActionPerformed
         String nulo = "";
         if (tf_id_usuarios.getText().equals(nulo)){
-            JOptionPane.showMessageDialog(null,"El id_usuarios es requerido");
+            JOptionPane.showMessageDialog(null,"El id_usuario es requerido");
         }else{
             tf_id_usuarios.requestFocusInWindow();
         }
@@ -382,7 +382,7 @@ public class Usuarios extends javax.swing.JFrame {
         String password = tf_password.getText();
         String status = tf_status.getText();
         
-        String sql = "insert into usuarios(id_usuarios,nombre,password,fecha,status) values ("
+        String sql = "insert into usuarios(id_usuario,nombre,password,fecha,status) values ("
                 + id_usuarios + ","
                 + "\"" + nombre + "\","
                 + "\"" + password + "\","
@@ -405,14 +405,14 @@ public class Usuarios extends javax.swing.JFrame {
                 + " password = " + "\"" + password + "\","
                 + " fecha = " + "\"" + fecha + "\","
                 + " status = " + "\"" + status + "\"" 
-                + " where id_usuarios = " + id_usuarios + ";";
+                + " where id_usuario = " + id_usuarios + ";";
         
         connect_and_catch(sql, "Registro modificado con exito");        
     }
     
     private void borrar() {
         String id = tf_id_usuarios.getText();        
-        String sql = "delete from usuarios where id_usuarios = "
+        String sql = "delete from usuarios where id_usuario = "
                 + id + ";";        
         connect_and_catch(sql,"Registro borrado con exito");        
     }
@@ -427,7 +427,7 @@ public class Usuarios extends javax.swing.JFrame {
             
             ResultSet table;           
             String sql = "select * from usuarios where "
-                    + "id_usuarios = " + id;                    
+                    + "id_usuario = " + id;                    
             stmt = con.prepareStatement(sql);            
             table = stmt.executeQuery();        
             while (table.next()){
