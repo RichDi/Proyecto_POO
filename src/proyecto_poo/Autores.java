@@ -10,7 +10,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -280,7 +288,24 @@ public class Autores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_deleteActionPerformed
 
     private void button_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_printActionPerformed
-
+                
+        try { 
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena = "jdbc:mysql://localhost/poo?user=root&password=qonmqa3p";
+            Connection con = (Connection) DriverManager.getConnection(cadena);
+            
+            String dir = "C:\\Users\\drdr_\\Documents\\GitHub\\Proyecto_POO\\src\\proyecto_poo\\report1.jrxml";
+            JasperReport reporte = JasperCompileManager.compileReport(dir);
+            JasperPrint mostrarReporte = JasperFillManager.fillReport(reporte,null,con);
+            JasperViewer.viewReport(mostrarReporte);
+        } catch (SQLException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        
     }//GEN-LAST:event_button_printActionPerformed
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
