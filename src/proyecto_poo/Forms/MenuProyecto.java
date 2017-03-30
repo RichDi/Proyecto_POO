@@ -25,6 +25,7 @@ import proyecto_poo.Tables.Autores_table;
 import proyecto_poo.Tables.Editoriales_table;
 import proyecto_poo.Tables.Genero_table;
 import proyecto_poo.Tables.Libros_table;
+import proyecto_poo.Tables.Nacionalidades_table;
 import proyecto_poo.Tables.Usuarios_table;
 
 /**
@@ -234,6 +235,11 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
         jMenu4.add(jMenuItem16);
 
         jMenuItem17.setText("Nacionalidades");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem17);
 
         jMenuItem18.setText("Generos");
@@ -375,6 +381,11 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         CHM_Brau();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        Nacionalidades_table edi = new Nacionalidades_table();
+        edi.setVisible(true);
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     /**
      * @param args the command line arguments
