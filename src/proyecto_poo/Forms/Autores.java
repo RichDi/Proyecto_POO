@@ -300,7 +300,7 @@ public class Autores extends javax.swing.JFrame {
                 
         try { 
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/poo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
             Connection con = (Connection) DriverManager.getConnection(cadena);
             
             String dir = "C:\\Users\\drdr_\\Documents\\GitHub\\Proyecto_POO\\src\\proyecto_poo\\report1.jrxml";
