@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2535673c-c0af-49ea-8b35-7d8f7a896f44">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     editoriales.`id_editorial` AS editoriales_id_editorial,
+     editoriales.`nombre` AS editoriales_nombre,
+     editoriales.`direccion` AS editoriales_direccion,
+     editoriales.`email` AS editoriales_email,
+     editoriales.`telefono` AS editoriales_telefono,
+     editoriales.`contacto` AS editoriales_contacto
+FROM
+     `editoriales` editoriales]]>
+	</queryString>
+	<field name="editoriales_id_editorial" class="java.lang.Integer"/>
+	<field name="editoriales_nombre" class="java.lang.String"/>
+	<field name="editoriales_direccion" class="java.lang.String"/>
+	<field name="editoriales_email" class="java.lang.String"/>
+	<field name="editoriales_telefono" class="java.lang.String"/>
+	<field name="editoriales_contacto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="637" y="4" width="165" height="74" uuid="602cc998-ba9e-4a22-b73a-d4bd5bbc0dbf"/>
+				<imageExpression><![CDATA["C:\\Users\\drdr_\\OneDrive\\Fotos\\logo-universidad-politecnica-del-valle-de-mexico.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="14" width="366" height="50" uuid="039ab20b-b9dd-47b9-a7c6-35e7613de589"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Reporte de Editoriales]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="2" width="100" height="20" uuid="28c95733-4d89-43aa-a312-eb6a8912e82c"/>
+				<text><![CDATA[editoriales_id_editorial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="2" width="100" height="20" uuid="7d7c8cb8-f9a7-4c3a-9692-86a8b801b755"/>
+				<text><![CDATA[editoriales_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="2" width="100" height="20" uuid="ef916e4d-6be0-480d-bfcc-dfc908b36485"/>
+				<text><![CDATA[editoriales_direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="2" width="100" height="20" uuid="9a5c659b-40bc-455c-9ddb-963f08402316"/>
+				<text><![CDATA[editoriales_email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="486" y="2" width="100" height="20" uuid="3e73389d-5c74-47e3-aa52-c10571147f6c"/>
+				<text><![CDATA[editoriales_telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="604" y="2" width="100" height="20" uuid="de206d70-2a60-4569-bdb3-ec9f5dfe7fb5"/>
+				<text><![CDATA[editoriales_contacto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="0" width="100" height="20" uuid="2a28dcf3-d3e7-4b35-8696-cd4ba413470e"/>
+				<textFieldExpression><![CDATA[$F{editoriales_id_editorial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="0" width="100" height="20" uuid="5af376ba-009b-4bdc-b98c-c0491338fc0c"/>
+				<textFieldExpression><![CDATA[$F{editoriales_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="100" height="20" uuid="2eac8c28-991a-44cc-a727-ce5e3344d45f"/>
+				<textFieldExpression><![CDATA[$F{editoriales_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="0" width="100" height="20" uuid="2ed232be-fba3-433a-a0bc-fa8d6ee9270a"/>
+				<textFieldExpression><![CDATA[$F{editoriales_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="604" y="0" width="100" height="20" uuid="a8ca3d81-d32a-4690-ac90-d42267bd21b1"/>
+				<textFieldExpression><![CDATA[$F{editoriales_contacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="0" width="100" height="20" uuid="c2163530-aeec-49cf-a540-1942ffdb3fb4"/>
+				<textFieldExpression><![CDATA[$F{editoriales_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
