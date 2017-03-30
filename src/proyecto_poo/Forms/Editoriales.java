@@ -420,7 +420,7 @@ public class Editoriales extends javax.swing.JFrame {
         String telefonos = tf_telefonos.getText();
         
         
-        String sql = "insert into editoriales(id_editorial,nombre,direccion,email,telefonos,contacto) values ("                
+        String sql = "insert into editoriales(id_editorial,nombre,direccion,email,telefono,contacto) values ("                
                 + id_editorial + ","
                 + "\"" + nombre + "\","
                 + "\"" + direccion + "\","
