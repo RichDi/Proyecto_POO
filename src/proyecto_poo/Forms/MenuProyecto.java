@@ -6,8 +6,10 @@
 package proyecto_poo.Forms;
 
 import com.mysql.jdbc.Connection;
+import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -355,7 +357,7 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        ejecutarCHM();
+        CHM_Brau();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
@@ -433,7 +435,7 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode()==113){
-            ejecutarCHM();
+            CHM_Brau();
         }
     }
 
@@ -442,14 +444,17 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
         
     }
     
-    private void ejecutarCHM(){
-           try {
-                Runtime.getRuntime().exec("hh.exe C:\\Users\\drdr_\\Documents\\github\\Proyecto_POO\\Sys_Biblio");
-            } catch (IOException ex) {
-                Logger.getLogger(MenuProyecto.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    private void CHM_Brau(){
+        try {
+            Desktop des = Desktop.getDesktop();
+            File file = new File("C:\\Users\\drdr_\\Documents\\github\\Proyecto_POO\\Sys_Biblio.chm");
+            des.open(file);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuProyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
-
+    
     private void imprimir(String name) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
