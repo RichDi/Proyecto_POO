@@ -32,10 +32,12 @@ public class Usuarios extends javax.swing.JFrame {
      */
     public Usuarios() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public Usuarios(int a) {
         initComponents();
+        setLocationRelativeTo(null);
         tf_id_usuarios.setText(String.valueOf(a));
         consultar();
     }

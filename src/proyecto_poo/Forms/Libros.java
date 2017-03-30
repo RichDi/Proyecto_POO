@@ -32,9 +32,11 @@ public class Libros extends javax.swing.JFrame {
      */
     public Libros() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     public Libros(int a) {
         initComponents();
+        setLocationRelativeTo(null);
         tf_id_libros.setText(String.valueOf(a));
         consultar();
     }

@@ -31,10 +31,12 @@ public class Genero extends javax.swing.JFrame {
      */
     public Genero() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public Genero(int a) {
         initComponents();
+        setLocationRelativeTo(null);
         tf_genero.setText(String.valueOf(a));
         consultar();
     }

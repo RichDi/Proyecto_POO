@@ -32,10 +32,12 @@ public class Autores extends javax.swing.JFrame {
      */
     public Autores() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public Autores(int a) {        
         initComponents();
+        setLocationRelativeTo(null);
         tf_id_autor.setText(String.valueOf(a));
         consultar();
     }

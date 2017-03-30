@@ -32,10 +32,12 @@ public class Editoriales extends javax.swing.JFrame {
      */
     public Editoriales() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public Editoriales(int a) {
         initComponents();        
+        setLocationRelativeTo(null);
         tf_id_editorial.setText(String.valueOf(a));
         consultar();
     }

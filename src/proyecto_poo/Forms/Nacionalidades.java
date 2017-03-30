@@ -32,10 +32,12 @@ public class Nacionalidades extends javax.swing.JFrame {
      */
     public Nacionalidades() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public Nacionalidades(int a) {
         initComponents();
+        setLocationRelativeTo(null);
         tf_id_nacionalidades.setText(String.valueOf(a));
         consultar();
     }
