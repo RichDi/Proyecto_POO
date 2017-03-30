@@ -51,7 +51,7 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jcMousePanel1 = new jcMousePanel.jcMousePanel();
+        jcMousePanel2 = new jcMousePanel.jcMousePanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -84,17 +84,17 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/soc_pentakill_icon.jpg"))); // NOI18N
-        jcMousePanel1.setVisibleLogo(false);
+        jcMousePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_poo/iconos/soc_pentakill_icon.jpg"))); // NOI18N
+        jcMousePanel2.setVisibleLogo(false);
 
-        javax.swing.GroupLayout jcMousePanel1Layout = new javax.swing.GroupLayout(jcMousePanel1);
-        jcMousePanel1.setLayout(jcMousePanel1Layout);
-        jcMousePanel1Layout.setHorizontalGroup(
-            jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jcMousePanel2Layout = new javax.swing.GroupLayout(jcMousePanel2);
+        jcMousePanel2.setLayout(jcMousePanel2Layout);
+        jcMousePanel2Layout.setHorizontalGroup(
+            jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 585, Short.MAX_VALUE)
         );
-        jcMousePanel1Layout.setVerticalGroup(
-            jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jcMousePanel2Layout.setVerticalGroup(
+            jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 522, Short.MAX_VALUE)
         );
 
@@ -283,11 +283,11 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+            .addComponent(jcMousePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(jcMousePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
         );
 
         pack();
@@ -441,7 +441,7 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private jcMousePanel.jcMousePanel jcMousePanel1;
+    private jcMousePanel.jcMousePanel jcMousePanel2;
     // End of variables declaration//GEN-END:variables
 
     @Override
