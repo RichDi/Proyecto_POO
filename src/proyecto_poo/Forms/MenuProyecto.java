@@ -35,13 +35,19 @@ import proyecto_poo.Tables.Usuarios_table;
  */
 public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
 
+    private static String user;
+    private static String password;
+
     /**
      * Creates new form MenuProyecto
      */
-    public MenuProyecto() {
+    
+    public MenuProyecto(String user, String pass) {
         initComponents();
+        this.user = user;
+        this.password = pass;
         setLocationRelativeTo(null);
-        addKeyListener(this);
+        addKeyListener(this);        
     }
 
     /**
@@ -306,81 +312,81 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Autores a = new Autores();
+        Autores a = new Autores(user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        imprimir("autores_table.jrxml");
+        imprimir("autores_report.jrxml");
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        Autores_table edi = new Autores_table();
+        Autores_table edi = new Autores_table(user,password);
         edi.setVisible(true);
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Nacionalidades a = new Nacionalidades();
+        Nacionalidades a = new Nacionalidades(user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Libros a = new Libros();
+        Libros a = new Libros(user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Genero a = new Genero();
+        Genero a = new Genero(user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Usuarios u = new Usuarios();
+        Usuarios u = new Usuarios(user,password);
         u.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        Editoriales e = new Editoriales();
+        Editoriales e = new Editoriales(user,password);
         e.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        imprimir("libros_table.jrxml");
+        imprimir("libros_report.jrxml");
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        imprimir("nacionalidades_table.jrxml");
+        imprimir("nacionalidades_report.jrxml");
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        imprimir("generos_table.jrxml");
+        imprimir("generos_report.jrxml");
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        imprimir("usuarios_table.jrxml");
+        imprimir("usuarios_report.jrxml");
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        imprimir("editoriales_table.jrxml");
+        imprimir("editoriales_report.jrxml");
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        Libros_table edi = new Libros_table();
+        Libros_table edi = new Libros_table(user,password);
         edi.setVisible(true);
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
-        Genero_table edi = new Genero_table();
+        Genero_table edi = new Genero_table(user,password);
         edi.setVisible(true);
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
-        Usuarios_table edi = new Usuarios_table();
+        Usuarios_table edi = new Usuarios_table(user,password);
         edi.setVisible(true);
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
-        Editoriales_table edi = new Editoriales_table();
+        Editoriales_table edi = new Editoriales_table(user,password);
         edi.setVisible(true);
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
@@ -389,7 +395,7 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-        Nacionalidades_table edi = new Nacionalidades_table();
+        Nacionalidades_table edi = new Nacionalidades_table(user,password);
         edi.setVisible(true);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
@@ -427,7 +433,7 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuProyecto().setVisible(true);
+                new MenuProyecto(user,password).setVisible(true);
             }
         });
     }
@@ -496,20 +502,25 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     private void imprimir(String name) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);
-            String dir = "C:\\Users\\drdr_\\Documents\\"
-                    + name;
+            String sys_path = System.getProperty("user.dir");
+            String dir =  sys_path + "\\Reports\\"
+                    + name;            
+            JOptionPane.showMessageDialog(null, dir);
             JasperReport report = JasperCompileManager.compileReport(dir);
             JasperPrint mostrarReporte = JasperFillManager.fillReport(report,null,con);
             JasperViewer.viewReport(mostrarReporte);
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (JRException ex) {
             Logger.getLogger(Autores.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
     

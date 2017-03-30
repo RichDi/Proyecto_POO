@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="be9dcef7-882d-487b-8bb1-963a097ab462">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc4bf21b-8d2e-4872-b601-349437136dc1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      nacionalidades.`id_nacionalidad` AS nacionalidades_id_nacionalidad,
@@ -13,16 +16,49 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="27" width="454" height="52" uuid="5502991f-bfab-48d4-a400-97608d78dc39"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Reporte de Nacionalidades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="15" width="139" height="64" uuid="c6704553-89f5-4a8b-95e0-d463b2a6cbc7"/>
+				<textElement>
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[UPVM]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="2" width="100" height="20" uuid="fe6296cf-8a0e-4c94-b7f8-8a16c5280bb8"/>
+				<text><![CDATA[nacionalidades_id_nacionalidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="167" y="2" width="100" height="20" uuid="0ae5d839-326a-4748-8be8-a1f971d1d46f"/>
+				<text><![CDATA[nacionalidades_descripcion]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="2" width="100" height="20" uuid="f20297df-3410-4122-96e4-df93d08a82e2"/>
+				<textFieldExpression><![CDATA[$F{nacionalidades_id_nacionalidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="0" width="100" height="20" uuid="0dc87371-4598-4a8f-b86b-e9b04ef85392"/>
+				<textFieldExpression><![CDATA[$F{nacionalidades_descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>

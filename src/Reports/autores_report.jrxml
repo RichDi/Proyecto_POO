@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1161ccc-407a-4dae-b46a-d6915468b770">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6080d7a-a110-49a7-a741-f421244d0464">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,34 +8,33 @@
      autores.`id_autor` AS autores_id_autor,
      autores.`nombre` AS autores_nombre,
      autores.`id_nacionalidad` AS autores_id_nacionalidad,
-     autores.`email` AS autores_email,
-     nacionalidades.`id_nacionalidad` AS nacionalidades_id_nacionalidad,
-     nacionalidades.`descripcion` AS nacionalidades_descripcion
+     autores.`email` AS autores_email
 FROM
-     `nacionalidades` nacionalidades INNER JOIN `autores` autores ON nacionalidades.`id_nacionalidad` = autores.`id_nacionalidad`]]>
+     `autores` autores]]>
 	</queryString>
 	<field name="autores_id_autor" class="java.lang.Integer"/>
 	<field name="autores_nombre" class="java.lang.String"/>
 	<field name="autores_id_nacionalidad" class="java.lang.Integer"/>
 	<field name="autores_email" class="java.lang.String"/>
-	<field name="nacionalidades_id_nacionalidad" class="java.lang.Integer"/>
-	<field name="nacionalidades_descripcion" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="637" y="5" width="165" height="74" uuid="f1e8e944-1b6b-4073-87d8-8806078d560d"/>
-				<imageExpression><![CDATA["C:\\Users\\drdr_\\OneDrive\\Fotos\\logo-universidad-politecnica-del-valle-de-mexico.png"]]></imageExpression>
-			</image>
-			<textField>
-				<reportElement x="0" y="15" width="317" height="50" uuid="79b5dc0f-bb55-4774-a630-6e246f279c9d"/>
+			<staticText>
+				<reportElement x="0" y="24" width="327" height="52" uuid="aab29f60-8c1c-4976-b79c-089b4e90ec05"/>
 				<textElement>
 					<font size="36"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Reporte de Autores]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Reporte de Autores]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="12" width="139" height="64" uuid="16e5794f-6f95-4486-bf28-207acbd7da8e"/>
+				<textElement>
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[UPVM]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -44,19 +43,19 @@ FROM
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="24" y="2" width="100" height="20" uuid="cd485669-b3a6-4e10-ba7c-d9dbc0f80582"/>
+				<reportElement x="23" y="2" width="100" height="20" uuid="4da16f84-f8c6-4a6a-a318-ad23657d1c6b"/>
 				<text><![CDATA[autores_id_autor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="144" y="2" width="100" height="20" uuid="77db067c-7d3f-4104-81b0-498c1707124e"/>
+				<reportElement x="153" y="2" width="100" height="20" uuid="d2144932-11f9-4ebd-9dc5-a313e43e1d3e"/>
 				<text><![CDATA[autores_nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="273" y="2" width="100" height="20" uuid="82509c66-201a-4a87-b1c2-10a955d2ef22"/>
+				<reportElement x="289" y="2" width="100" height="20" uuid="85b225cb-f59a-4aa4-95da-c8f59a21ca07"/>
 				<text><![CDATA[autores_id_nacionalidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="397" y="2" width="100" height="20" uuid="7b214d25-b2ac-4345-8352-b91a391228c9"/>
+				<reportElement x="423" y="2" width="100" height="20" uuid="dfa78d7a-ce6d-423b-9a33-51cd3777a72d"/>
 				<text><![CDATA[autores_email]]></text>
 			</staticText>
 		</band>
@@ -64,19 +63,19 @@ FROM
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="24" y="0" width="100" height="20" uuid="1ba2731e-ce42-4a21-aeaf-5b55d676903a"/>
+				<reportElement x="23" y="2" width="100" height="20" uuid="684373c5-f355-4091-a920-29761a71def5"/>
 				<textFieldExpression><![CDATA[$F{autores_id_autor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="144" y="0" width="100" height="20" uuid="f43535dc-18d2-4e5a-a4f1-e2c57b29d93e"/>
+				<reportElement x="153" y="3" width="100" height="20" uuid="720559a7-0ecd-4a75-972d-792ee3d16fec"/>
 				<textFieldExpression><![CDATA[$F{autores_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="273" y="0" width="100" height="20" uuid="4035f3a5-5ee8-450a-9e15-aa8f8f2d1180"/>
+				<reportElement x="289" y="3" width="100" height="20" uuid="1b71873a-c850-43c6-a450-806790913c9e"/>
 				<textFieldExpression><![CDATA[$F{autores_id_nacionalidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="397" y="0" width="100" height="20" uuid="503e643c-0311-44da-87d5-31ddf9be6c4d"/>
+				<reportElement x="423" y="5" width="100" height="20" uuid="12c4028f-dd72-4cfd-ae8f-d4b52c102814"/>
 				<textFieldExpression><![CDATA[$F{autores_email}]]></textFieldExpression>
 			</textField>
 		</band>

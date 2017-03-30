@@ -27,15 +27,21 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Libros extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;
     /**
      * Creates new form Libros
      */
-    public Libros() {
+    public Libros(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
-    public Libros(int a) {
+    public Libros(int a, String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
         tf_id_libros.setText(String.valueOf(a));
         consultar();
@@ -357,7 +363,7 @@ public class Libros extends javax.swing.JFrame {
     }//GEN-LAST:event_button_printActionPerformed
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
-        Libros_table lt = new Libros_table();
+        Libros_table lt = new Libros_table(user,password);
         lt.setVisible(true);
     }//GEN-LAST:event_button_searchActionPerformed
 
@@ -391,7 +397,7 @@ public class Libros extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Libros().setVisible(true);
+                new Libros(user,password).setVisible(true);
             }
         });
     }
@@ -458,7 +464,7 @@ public class Libros extends javax.swing.JFrame {
         
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             
@@ -488,9 +494,10 @@ public class Libros extends javax.swing.JFrame {
     private void imprimir() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);
-            String dir = "C:\\Users\\drdr_\\Documents\\libros_table.jrxml";
+            String sys_path = System.getProperty("user.dir");
+            String dir = sys_path + "\\Reports\\libros_report.jrxml";
             JasperReport report = JasperCompileManager.compileReport(dir);
             JasperPrint mostrarReporte = JasperFillManager.fillReport(report,null,con);
             JasperViewer.viewReport(mostrarReporte);
@@ -512,7 +519,7 @@ public class Libros extends javax.swing.JFrame {
     private void connect_and_catch(String sql, String mensaje){
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             stmt=con.prepareStatement(sql);

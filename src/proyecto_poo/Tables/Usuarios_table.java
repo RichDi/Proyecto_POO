@@ -13,11 +13,15 @@ import proyecto_poo.Forms.Usuarios;
  */
 public class Usuarios_table extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;   
     /**
      * Creates new form Usuarios_table
      */
-    public Usuarios_table() {
+    public Usuarios_table(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
 
@@ -31,8 +35,8 @@ public class Usuarios_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        usuariosQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT u FROM Usuarios u");
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        usuariosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuarios u");
         usuariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -103,7 +107,7 @@ public class Usuarios_table extends javax.swing.JFrame {
         int fila = jTable1.getSelectedRow();
         int valor = (int) jTable1.getValueAt(fila, column);
         
-        Usuarios a = new Usuarios(valor);
+        Usuarios a = new Usuarios(valor,user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -141,13 +145,13 @@ public class Usuarios_table extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Usuarios_table().setVisible(true);
+                new Usuarios_table(user,password).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager entityManager0;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

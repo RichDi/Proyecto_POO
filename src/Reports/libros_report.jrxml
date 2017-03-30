@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fcb5afb3-2ec8-42fd-949b-0df5db304478">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3b61322f-5263-4f88-9895-92c8ed0c6a12">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      libros.`id_libro` AS libros_id_libro,
@@ -21,16 +24,81 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="27" width="327" height="52" uuid="5965ba3c-596e-4753-8790-d05e6307a0a4"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Reporte de Libros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="15" width="139" height="64" uuid="5053bd89-0d84-4612-8272-d22476a51d81"/>
+				<textElement>
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[UPVM]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="2" width="100" height="20" uuid="ef86b76b-1937-46d4-adbe-3b68abebd62a"/>
+				<text><![CDATA[libros_id_libro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="2" width="100" height="20" uuid="83da386b-b7e0-43c8-8c39-fde8a340fc62"/>
+				<text><![CDATA[libros_titulo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="2" width="100" height="20" uuid="fa0efabc-d25b-4899-84eb-f44f253eaee8"/>
+				<text><![CDATA[libros_id_editorial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="2" width="100" height="20" uuid="6ee84ca8-1592-433e-8b30-816317b5a54b"/>
+				<text><![CDATA[libros_id_autor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="547" y="2" width="100" height="20" uuid="ef17d773-5071-49d7-bf5a-3e2c568eaf66"/>
+				<text><![CDATA[libros_no_paginas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="671" y="2" width="100" height="20" uuid="172cbfbf-2db1-4c32-b5ea-b2bbcc4bccf2"/>
+				<text><![CDATA[libros_id_nacionalidad]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="0" width="100" height="20" uuid="944c1ca5-59fc-43db-bfa7-e1efc2697259"/>
+				<textFieldExpression><![CDATA[$F{libros_id_libro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="0" width="100" height="20" uuid="ab1f7211-b505-4b66-958c-0bbaef72b102"/>
+				<textFieldExpression><![CDATA[$F{libros_titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="0" width="100" height="20" uuid="b53fdd5c-044a-4756-8034-a8a00fd4abec"/>
+				<textFieldExpression><![CDATA[$F{libros_id_editorial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="100" height="20" uuid="3c739b9c-2111-4ffd-858b-688d7a33f7d8"/>
+				<textFieldExpression><![CDATA[$F{libros_id_autor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="547" y="0" width="100" height="20" uuid="8d02d2a5-a4e0-48d8-aba5-d42293227de1"/>
+				<textFieldExpression><![CDATA[$F{libros_no_paginas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="671" y="5" width="100" height="20" uuid="31f69755-a956-4801-91ba-233037286542"/>
+				<textFieldExpression><![CDATA[$F{libros_id_nacionalidad}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>

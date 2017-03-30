@@ -15,11 +15,15 @@ import proyecto_poo.Forms.Editoriales;
  */
 public class Editoriales_table extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;   
     /**
      * Creates new form Editoriales_table
      */
-    public Editoriales_table() {
+    public Editoriales_table(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
 
@@ -33,8 +37,8 @@ public class Editoriales_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        editorialesQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT e FROM Editoriales e");
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        editorialesQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Editoriales e");
         editorialesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : editorialesQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -111,7 +115,7 @@ public class Editoriales_table extends javax.swing.JFrame {
         int fila = jTable1.getSelectedRow();
         int valor = (int) jTable1.getValueAt(fila, column);
                 
-        Editoriales a = new Editoriales(valor);
+        Editoriales a = new Editoriales(valor,user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -149,7 +153,7 @@ public class Editoriales_table extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Editoriales_table().setVisible(true);
+                new Editoriales_table(user,password).setVisible(true);
             }
         });
     }
@@ -157,7 +161,7 @@ public class Editoriales_table extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.util.List<proyecto_poo.Tables.Editoriales> editorialesList;
     private javax.persistence.Query editorialesQuery;
-    private javax.persistence.EntityManager entityManager0;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

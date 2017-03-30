@@ -27,16 +27,23 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Usuarios extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;
+
     /**
      * Creates new form Usuarios
      */
-    public Usuarios() {
+    public Usuarios(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
     
-    public Usuarios(int a) {
+    public Usuarios(int a,String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
         tf_id_usuarios.setText(String.valueOf(a));
         consultar();
@@ -326,7 +333,7 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_button_deleteActionPerformed
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
-        Usuarios_table ut = new Usuarios_table();
+        Usuarios_table ut = new Usuarios_table(user,password);
         ut.setVisible(true);
     }//GEN-LAST:event_button_searchActionPerformed
 
@@ -364,7 +371,7 @@ public class Usuarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Usuarios().setVisible(true);
+                new Usuarios(user,password).setVisible(true);
             }
         });
     }
@@ -423,7 +430,7 @@ public class Usuarios extends javax.swing.JFrame {
         String id = tf_id_usuarios.getText();
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             
@@ -455,7 +462,7 @@ public class Usuarios extends javax.swing.JFrame {
     private void connect_and_catch(String sql, String mensaje){
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             stmt=con.prepareStatement(sql);
@@ -497,9 +504,10 @@ public class Usuarios extends javax.swing.JFrame {
     private void imprimir() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);
-            String dir = "C:\\Users\\drdr_\\Documents\\usuarios_table.jrxml";
+            String sys_path = System.getProperty("user.dir");
+            String dir = sys_path + "\\Reports\\usuarios_report.jrxml";
             JasperReport report = JasperCompileManager.compileReport(dir);
             JasperPrint mostrarReporte = JasperFillManager.fillReport(report,null,con);
             JasperViewer.viewReport(mostrarReporte);

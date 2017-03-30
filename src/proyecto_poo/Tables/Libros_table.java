@@ -13,11 +13,15 @@ import proyecto_poo.Forms.Libros;
  */
 public class Libros_table extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;   
     /**
      * Creates new form Libros_table
      */
-    public Libros_table() {
+    public Libros_table(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
 
@@ -106,7 +110,7 @@ public class Libros_table extends javax.swing.JFrame {
         int fila = jTable1.getSelectedRow();
         int valor = (int) jTable1.getValueAt(fila, column);
         
-        Libros a = new Libros(valor);
+        Libros a = new Libros(valor,user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -144,7 +148,7 @@ public class Libros_table extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Libros_table().setVisible(true);
+                new Libros_table(user,password).setVisible(true);
             }
         });
     }

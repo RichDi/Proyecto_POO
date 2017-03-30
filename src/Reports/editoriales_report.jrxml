@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2535673c-c0af-49ea-8b35-7d8f7a896f44">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1545cbc4-763c-4825-9587-c4aebb9cdaee">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -25,17 +25,20 @@ FROM
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="637" y="4" width="165" height="74" uuid="602cc998-ba9e-4a22-b73a-d4bd5bbc0dbf"/>
-				<imageExpression><![CDATA["C:\\Users\\drdr_\\OneDrive\\Fotos\\logo-universidad-politecnica-del-valle-de-mexico.png"]]></imageExpression>
-			</image>
-			<textField>
-				<reportElement x="0" y="14" width="366" height="50" uuid="039ab20b-b9dd-47b9-a7c6-35e7613de589"/>
+			<staticText>
+				<reportElement x="0" y="27" width="368" height="52" uuid="c8f5855e-04e5-4f61-a82d-fda349c32464"/>
 				<textElement>
 					<font size="36"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Reporte de Editoriales]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Reporte de Editoriales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="15" width="139" height="64" uuid="a3f25214-56be-49e1-ac04-0d141fe14c87"/>
+				<textElement>
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[UPVM]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -44,27 +47,27 @@ FROM
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="17" y="2" width="100" height="20" uuid="28c95733-4d89-43aa-a312-eb6a8912e82c"/>
+				<reportElement x="19" y="2" width="100" height="20" uuid="2a3c01b0-4d31-4a72-8961-7150c9b9fc3d"/>
 				<text><![CDATA[editoriales_id_editorial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="134" y="2" width="100" height="20" uuid="7d7c8cb8-f9a7-4c3a-9692-86a8b801b755"/>
+				<reportElement x="132" y="2" width="100" height="20" uuid="4e32dc62-b20b-41f8-8d52-cba2f26d1420"/>
 				<text><![CDATA[editoriales_nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="251" y="2" width="100" height="20" uuid="ef916e4d-6be0-480d-bfcc-dfc908b36485"/>
+				<reportElement x="251" y="2" width="100" height="20" uuid="d72d1b3c-b601-43ad-a456-fff6b9cf058b"/>
 				<text><![CDATA[editoriales_direccion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="369" y="2" width="100" height="20" uuid="9a5c659b-40bc-455c-9ddb-963f08402316"/>
+				<reportElement x="370" y="2" width="100" height="20" uuid="d91db7c7-e84e-4d01-b426-788884bed190"/>
 				<text><![CDATA[editoriales_email]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="486" y="2" width="100" height="20" uuid="3e73389d-5c74-47e3-aa52-c10571147f6c"/>
+				<reportElement x="489" y="2" width="100" height="20" uuid="d4e15cca-26ed-4cdb-9a89-d1ef3e15404c"/>
 				<text><![CDATA[editoriales_telefono]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="604" y="2" width="100" height="20" uuid="de206d70-2a60-4569-bdb3-ec9f5dfe7fb5"/>
+				<reportElement x="607" y="2" width="100" height="20" uuid="0c841866-c8f0-4a85-a88b-ba6785e7029f"/>
 				<text><![CDATA[editoriales_contacto]]></text>
 			</staticText>
 		</band>
@@ -72,28 +75,28 @@ FROM
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="17" y="0" width="100" height="20" uuid="2a28dcf3-d3e7-4b35-8696-cd4ba413470e"/>
+				<reportElement x="19" y="5" width="100" height="20" uuid="1bad4b9e-d87c-4c20-ab62-98d446fcf0c0"/>
 				<textFieldExpression><![CDATA[$F{editoriales_id_editorial}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="251" y="0" width="100" height="20" uuid="5af376ba-009b-4bdc-b98c-c0491338fc0c"/>
+				<reportElement x="132" y="9" width="100" height="20" uuid="88f2b18a-8779-438d-a6ab-3880626ecf7f"/>
+				<textFieldExpression><![CDATA[$F{editoriales_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="8" width="100" height="20" uuid="ae2d4260-d13d-44c7-b148-66e39acaca3b"/>
 				<textFieldExpression><![CDATA[$F{editoriales_direccion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="366" y="0" width="100" height="20" uuid="2eac8c28-991a-44cc-a727-ce5e3344d45f"/>
+				<reportElement x="370" y="8" width="100" height="20" uuid="d3295412-641f-4c8d-bc8c-3ff5e68b5e4a"/>
 				<textFieldExpression><![CDATA[$F{editoriales_email}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="486" y="0" width="100" height="20" uuid="2ed232be-fba3-433a-a0bc-fa8d6ee9270a"/>
+				<reportElement x="489" y="8" width="100" height="20" uuid="c2fecdfb-816c-4018-a875-595a444867e9"/>
 				<textFieldExpression><![CDATA[$F{editoriales_telefono}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="604" y="0" width="100" height="20" uuid="a8ca3d81-d32a-4690-ac90-d42267bd21b1"/>
+				<reportElement x="607" y="7" width="100" height="20" uuid="f71b9ac7-a955-46db-82e4-1f4f9b76235b"/>
 				<textFieldExpression><![CDATA[$F{editoriales_contacto}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="134" y="0" width="100" height="20" uuid="c2163530-aeec-49cf-a540-1942ffdb3fb4"/>
-				<textFieldExpression><![CDATA[$F{editoriales_nombre}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

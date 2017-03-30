@@ -13,11 +13,15 @@ import proyecto_poo.Forms.Genero;
  */
 public class Genero_table extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;   
     /**
      * Creates new form Genero_table
      */
-    public Genero_table() {
+    public Genero_table(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
 
@@ -31,8 +35,8 @@ public class Genero_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        generosQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT g FROM Generos g");
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        generosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT g FROM Generos g");
         generosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : generosQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -96,7 +100,7 @@ public class Genero_table extends javax.swing.JFrame {
         int fila = jTable1.getSelectedRow();
         int valor = (int) jTable1.getValueAt(fila, column);
         
-        Genero a = new Genero(valor);
+        Genero a = new Genero(valor,user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -134,13 +138,13 @@ public class Genero_table extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Genero_table().setVisible(true);
+                new Genero_table(user,password).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager entityManager0;
+    private javax.persistence.EntityManager entityManager;
     private java.util.List<proyecto_poo.Tables.Generos> generosList;
     private javax.persistence.Query generosQuery;
     private javax.swing.JButton jButton2;

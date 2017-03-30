@@ -13,11 +13,15 @@ import proyecto_poo.Forms.Nacionalidades;
  */
 public class Nacionalidades_table extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;   
     /**
      * Creates new form Nacionalidades_table
      */
-    public Nacionalidades_table() {
+    public Nacionalidades_table(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
 
@@ -31,8 +35,8 @@ public class Nacionalidades_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        nacionalidadesQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT n FROM Nacionalidades n");
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        nacionalidadesQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT n FROM Nacionalidades n");
         nacionalidadesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : nacionalidadesQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -97,7 +101,7 @@ public class Nacionalidades_table extends javax.swing.JFrame {
         int fila = jTable1.getSelectedRow();
         int valor = (int) jTable1.getValueAt(fila, column);
         
-        Nacionalidades a = new Nacionalidades(valor);
+        Nacionalidades a = new Nacionalidades(valor,user,password);
         a.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -135,13 +139,13 @@ public class Nacionalidades_table extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Nacionalidades_table().setVisible(true);
+                new Nacionalidades_table(user,password).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager entityManager0;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

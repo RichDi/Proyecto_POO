@@ -27,20 +27,30 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Autores extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;    
+
     /**
      * Creates new form Autores
      */
-    public Autores() {
-        initComponents();
+    
+    public Autores(String user, String password) {        
+        initComponents();        
         setLocationRelativeTo(null);
+        this.user = user;
+        this.password = password;                
     }
     
-    public Autores(int a) {        
-        initComponents();
+    public Autores(int a, String user, String password) {        
+        initComponents();        
         setLocationRelativeTo(null);
+        this.user = user;
+        this.password = password;
         tf_id_autor.setText(String.valueOf(a));
         consultar();
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -300,10 +310,11 @@ public class Autores extends javax.swing.JFrame {
                 
         try { 
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);
             
-            String dir = "C:\\Users\\drdr_\\Documents\\GitHub\\Proyecto_POO\\src\\proyecto_poo\\report1.jrxml";
+            String sys_path = System.getProperty("user.dir");
+            String dir = sys_path + "\\Reports\\autores_report.jrxml";
             JasperReport reporte = JasperCompileManager.compileReport(dir);
             JasperPrint mostrarReporte = JasperFillManager.fillReport(reporte,null,con);
             JasperViewer.viewReport(mostrarReporte);
@@ -319,7 +330,7 @@ public class Autores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_printActionPerformed
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
-        Autores_table gw = new Autores_table();
+        Autores_table gw = new Autores_table(user,password);
         gw.setVisible(true);
     }//GEN-LAST:event_button_searchActionPerformed
 
@@ -353,7 +364,7 @@ public class Autores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Autores().setVisible(true);
+                new Autores(user,password).setVisible(true);
             }
         });
     }
@@ -430,7 +441,7 @@ public class Autores extends javax.swing.JFrame {
         
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             
@@ -462,7 +473,7 @@ public class Autores extends javax.swing.JFrame {
     private void connect_and_catch(String sql, String mensaje){
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             stmt=con.prepareStatement(sql);
@@ -483,7 +494,7 @@ public class Autores extends javax.swing.JFrame {
     private void imprimir() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);
             String dir = "C:\\Users\\drdr_\\Documents\\autores_table.jrxml";
             JasperReport report = JasperCompileManager.compileReport(dir);

@@ -26,16 +26,22 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Genero extends javax.swing.JFrame {
 
+    private static String user;
+    private static String password;
     /**
      * Creates new form Genero
      */
-    public Genero() {
+    public Genero(String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
     }
     
-    public Genero(int a) {
+    public Genero(int a, String user, String password) {
         initComponents();
+        this.user = user;
+        this.password = password;
         setLocationRelativeTo(null);
         tf_genero.setText(String.valueOf(a));
         consultar();
@@ -249,7 +255,7 @@ public class Genero extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_descripcionActionPerformed
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
-        Genero_table gw = new Genero_table();
+        Genero_table gw = new Genero_table(user,password);
         gw.setVisible(true);
     }//GEN-LAST:event_button_searchActionPerformed
 
@@ -287,7 +293,7 @@ public class Genero extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Genero().setVisible(true);
+                new Genero(user,password).setVisible(true);
             }
         });
     }
@@ -346,7 +352,7 @@ public class Genero extends javax.swing.JFrame {
         
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             
@@ -371,9 +377,10 @@ public class Genero extends javax.swing.JFrame {
     private void imprimir() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);
-            String dir = "C:\\Users\\drdr_\\Documents\\generos_table.jrxml";
+            String sys_path = System.getProperty("user.dir");
+            String dir = sys_path + "\\Reports\\generos_report.jrxml";
             JasperReport report = JasperCompileManager.compileReport(dir);
             JasperPrint mostrarReporte = JasperFillManager.fillReport(report,null,con);
             JasperViewer.viewReport(mostrarReporte);
@@ -395,7 +402,7 @@ public class Genero extends javax.swing.JFrame {
     private void connect_and_catch(String sql, String mensaje){
         try{            
             Class.forName("com.mysql.jdbc.Driver");
-            String cadena = "jdbc:mysql://localhost/fpoo?user=root&password=qonmqa3p";
+            String cadena = "jdbc:mysql://localhost/fpoo?user="+user+"&password="+password;
             Connection con = (Connection) DriverManager.getConnection(cadena);            
             PreparedStatement stmt = null;            
             stmt=con.prepareStatement(sql);
