@@ -31,17 +31,17 @@ public class Autores_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        autores_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT a FROM Autores_1 a");
-        autores_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : autores_1Query.getResultList();
+        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        autoresQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT a FROM Autores a");
+        autoresList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : autoresQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, autores_1List, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idAutores}"));
-        columnBinding.setColumnName("Id Autores");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, autoresList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idAutor}"));
+        columnBinding.setColumnName("Id Autor");
         columnBinding.setColumnClass(Integer.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
         columnBinding.setColumnName("Nombre");
@@ -129,9 +129,9 @@ public class Autores_table extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.util.List<proyecto_poo.Forms.Autores_1> autores_1List;
-    private javax.persistence.Query autores_1Query;
-    private javax.persistence.EntityManager entityManager;
+    private java.util.List<proyecto_poo.Tables.Autores> autoresList;
+    private javax.persistence.Query autoresQuery;
+    private javax.persistence.EntityManager entityManager0;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

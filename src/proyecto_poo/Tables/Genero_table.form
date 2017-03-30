@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.persistence.EntityManager" name="entityManager">
+    <Component class="javax.persistence.EntityManager" name="entityManager0">
       <Properties>
         <Property name="persistenceUnit" type="java.lang.String" value="fpoo?zeroDateTimeBehavior=convertToNullPU"/>
       </Properties>
@@ -11,7 +11,7 @@
       <Properties>
         <Property name="query" type="java.lang.String" value="SELECT g FROM Generos g"/>
         <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
+          <ComponentRef name="entityManager0"/>
         </Property>
       </Properties>
     </Component>
@@ -22,7 +22,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyecto_poo.Forms.Generos&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyecto_poo.Tables.Generos&gt;"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -76,7 +76,7 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <BindingProperties>
             <BindingProperty name="elements" source="generosList" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
-              <Subbinding sourcePath="${idGeneros}">
+              <Subbinding sourcePath="${idGenero}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
               </Subbinding>
               <Subbinding sourcePath="${descripcion}">

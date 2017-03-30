@@ -30,17 +30,17 @@ public class Nacionalidades_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        nacionalidades_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT n FROM Nacionalidades_1 n");
-        nacionalidades_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : nacionalidades_1Query.getResultList();
+        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        nacionalidadesQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT n FROM Nacionalidades n");
+        nacionalidadesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : nacionalidadesQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, nacionalidades_1List, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idNacionalidades}"));
-        columnBinding.setColumnName("Id Nacionalidades");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, nacionalidadesList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idNacionalidad}"));
+        columnBinding.setColumnName("Id Nacionalidad");
         columnBinding.setColumnClass(Integer.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${descripcion}"));
         columnBinding.setColumnName("Descripcion");
@@ -121,11 +121,11 @@ public class Nacionalidades_table extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager entityManager;
+    private javax.persistence.EntityManager entityManager0;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.util.List<proyecto_poo.Forms.Nacionalidades_1> nacionalidades_1List;
-    private javax.persistence.Query nacionalidades_1Query;
+    private java.util.List<proyecto_poo.Tables.Nacionalidades> nacionalidadesList;
+    private javax.persistence.Query nacionalidadesQuery;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

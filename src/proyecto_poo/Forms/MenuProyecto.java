@@ -5,17 +5,24 @@
  */
 package proyecto_poo.Forms;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author drdr_
  */
-public class MenuProyecto extends javax.swing.JFrame {
+public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
 
     /**
      * Creates new form MenuProyecto
      */
     public MenuProyecto() {
         initComponents();
+        addKeyListener(this);
     }
 
     /**
@@ -308,4 +315,25 @@ public class MenuProyecto extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode()==113){
+            try {
+                Runtime.getRuntime().exec("hh.exe C:\\Users\\drdr_\\Documents\\github\\Proyecto_POO\\Sys_Biblio");
+            } catch (IOException ex) {
+                Logger.getLogger(MenuProyecto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
 }

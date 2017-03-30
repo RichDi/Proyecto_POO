@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo.Forms;
+package proyecto_poo.Tables;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -11,6 +11,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,21 +26,22 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "autores", catalog = "fpoo", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Autores_1.findAll", query = "SELECT a FROM Autores_1 a"),
-    @NamedQuery(name = "Autores_1.findByIdAutores", query = "SELECT a FROM Autores_1 a WHERE a.idAutores = :idAutores"),
-    @NamedQuery(name = "Autores_1.findByNombre", query = "SELECT a FROM Autores_1 a WHERE a.nombre = :nombre"),
-    @NamedQuery(name = "Autores_1.findByIdNacionalidad", query = "SELECT a FROM Autores_1 a WHERE a.idNacionalidad = :idNacionalidad"),
-    @NamedQuery(name = "Autores_1.findByEmail", query = "SELECT a FROM Autores_1 a WHERE a.email = :email")})
-public class Autores_1 implements Serializable {
+    @NamedQuery(name = "Autores.findAll", query = "SELECT a FROM Autores a")
+    , @NamedQuery(name = "Autores.findByIdAutor", query = "SELECT a FROM Autores a WHERE a.idAutor = :idAutor")
+    , @NamedQuery(name = "Autores.findByNombre", query = "SELECT a FROM Autores a WHERE a.nombre = :nombre")
+    , @NamedQuery(name = "Autores.findByIdNacionalidad", query = "SELECT a FROM Autores a WHERE a.idNacionalidad = :idNacionalidad")
+    , @NamedQuery(name = "Autores.findByEmail", query = "SELECT a FROM Autores a WHERE a.email = :email")})
+public class Autores implements Serializable {
 
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_autores")
-    private Integer idAutores;
+    @Column(name = "id_autor")
+    private Integer idAutor;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "id_nacionalidad")
@@ -46,21 +49,21 @@ public class Autores_1 implements Serializable {
     @Column(name = "email")
     private String email;
 
-    public Autores_1() {
+    public Autores() {
     }
 
-    public Autores_1(Integer idAutores) {
-        this.idAutores = idAutores;
+    public Autores(Integer idAutor) {
+        this.idAutor = idAutor;
     }
 
-    public Integer getIdAutores() {
-        return idAutores;
+    public Integer getIdAutor() {
+        return idAutor;
     }
 
-    public void setIdAutores(Integer idAutores) {
-        Integer oldIdAutores = this.idAutores;
-        this.idAutores = idAutores;
-        changeSupport.firePropertyChange("idAutores", oldIdAutores, idAutores);
+    public void setIdAutor(Integer idAutor) {
+        Integer oldIdAutor = this.idAutor;
+        this.idAutor = idAutor;
+        changeSupport.firePropertyChange("idAutor", oldIdAutor, idAutor);
     }
 
     public String getNombre() {
@@ -96,18 +99,18 @@ public class Autores_1 implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idAutores != null ? idAutores.hashCode() : 0);
+        hash += (idAutor != null ? idAutor.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Autores_1)) {
+        if (!(object instanceof Autores)) {
             return false;
         }
-        Autores_1 other = (Autores_1) object;
-        if ((this.idAutores == null && other.idAutores != null) || (this.idAutores != null && !this.idAutores.equals(other.idAutores))) {
+        Autores other = (Autores) object;
+        if ((this.idAutor == null && other.idAutor != null) || (this.idAutor != null && !this.idAutor.equals(other.idAutor))) {
             return false;
         }
         return true;
@@ -115,7 +118,7 @@ public class Autores_1 implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto_poo.Autores_1[ idAutores=" + idAutores + " ]";
+        return "proyecto_poo.Tables.Autores[ idAutor=" + idAutor + " ]";
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

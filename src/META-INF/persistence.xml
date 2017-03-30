@@ -8,6 +8,12 @@
     <class>proyecto_poo.Forms.Nacionalidades_1</class>
     <class>proyecto_poo.Forms.Usuarios_1</class>
     <class>proyecto_poo.Forms.Editoriales_1</class>
+    <class>proyecto_poo.Tables.Autores</class>
+    <class>proyecto_poo.Tables.Editoriales</class>
+    <class>proyecto_poo.Tables.Generos</class>
+    <class>proyecto_poo.Tables.Libros</class>
+    <class>proyecto_poo.Tables.Nacionalidades</class>
+    <class>proyecto_poo.Tables.Usuarios</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fpoo?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.password" value="qonmqa3p"/>

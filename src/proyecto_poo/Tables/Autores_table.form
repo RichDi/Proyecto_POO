@@ -2,27 +2,27 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.persistence.EntityManager" name="entityManager">
+    <Component class="javax.persistence.EntityManager" name="entityManager0">
       <Properties>
         <Property name="persistenceUnit" type="java.lang.String" value="fpoo?zeroDateTimeBehavior=convertToNullPU"/>
       </Properties>
     </Component>
-    <Component class="javax.persistence.Query" name="autores_1Query">
+    <Component class="javax.persistence.Query" name="autoresQuery">
       <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT a FROM Autores_1 a"/>
+        <Property name="query" type="java.lang.String" value="SELECT a FROM Autores a"/>
         <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
+          <ComponentRef name="entityManager0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="java.util.List" name="autores_1List">
+    <Component class="java.util.List" name="autoresList">
       <Properties>
         <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="autores_1Query"/>
+          <ComponentRef name="autoresQuery"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyecto_poo.Forms.Autores_1&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyecto_poo.Tables.Autores&gt;"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -75,8 +75,8 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="jTable1">
           <BindingProperties>
-            <BindingProperty name="elements" source="autores_1List" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
-              <Subbinding sourcePath="${idAutores}">
+            <BindingProperty name="elements" source="autoresList" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
+              <Subbinding sourcePath="${idAutor}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
               </Subbinding>
               <Subbinding sourcePath="${nombre}">

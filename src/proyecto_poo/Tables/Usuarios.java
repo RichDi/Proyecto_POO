@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo.Forms;
+package proyecto_poo.Tables;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -11,6 +11,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,22 +26,23 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "usuarios", catalog = "fpoo", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Usuarios_1.findAll", query = "SELECT u FROM Usuarios_1 u"),
-    @NamedQuery(name = "Usuarios_1.findByIdUsuarios", query = "SELECT u FROM Usuarios_1 u WHERE u.idUsuarios = :idUsuarios"),
-    @NamedQuery(name = "Usuarios_1.findByNombre", query = "SELECT u FROM Usuarios_1 u WHERE u.nombre = :nombre"),
-    @NamedQuery(name = "Usuarios_1.findByPassword", query = "SELECT u FROM Usuarios_1 u WHERE u.password = :password"),
-    @NamedQuery(name = "Usuarios_1.findByFecha", query = "SELECT u FROM Usuarios_1 u WHERE u.fecha = :fecha"),
-    @NamedQuery(name = "Usuarios_1.findByStatus", query = "SELECT u FROM Usuarios_1 u WHERE u.status = :status")})
-public class Usuarios_1 implements Serializable {
+    @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")
+    , @NamedQuery(name = "Usuarios.findByIdUsuario", query = "SELECT u FROM Usuarios u WHERE u.idUsuario = :idUsuario")
+    , @NamedQuery(name = "Usuarios.findByNombre", query = "SELECT u FROM Usuarios u WHERE u.nombre = :nombre")
+    , @NamedQuery(name = "Usuarios.findByPassword", query = "SELECT u FROM Usuarios u WHERE u.password = :password")
+    , @NamedQuery(name = "Usuarios.findByFecha", query = "SELECT u FROM Usuarios u WHERE u.fecha = :fecha")
+    , @NamedQuery(name = "Usuarios.findByStatus", query = "SELECT u FROM Usuarios u WHERE u.status = :status")})
+public class Usuarios implements Serializable {
 
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_usuarios")
-    private Integer idUsuarios;
+    @Column(name = "id_usuario")
+    private Integer idUsuario;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "password")
@@ -49,21 +52,21 @@ public class Usuarios_1 implements Serializable {
     @Column(name = "status")
     private String status;
 
-    public Usuarios_1() {
+    public Usuarios() {
     }
 
-    public Usuarios_1(Integer idUsuarios) {
-        this.idUsuarios = idUsuarios;
+    public Usuarios(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public Integer getIdUsuarios() {
-        return idUsuarios;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdUsuarios(Integer idUsuarios) {
-        Integer oldIdUsuarios = this.idUsuarios;
-        this.idUsuarios = idUsuarios;
-        changeSupport.firePropertyChange("idUsuarios", oldIdUsuarios, idUsuarios);
+    public void setIdUsuario(Integer idUsuario) {
+        Integer oldIdUsuario = this.idUsuario;
+        this.idUsuario = idUsuario;
+        changeSupport.firePropertyChange("idUsuario", oldIdUsuario, idUsuario);
     }
 
     public String getNombre() {
@@ -109,18 +112,18 @@ public class Usuarios_1 implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idUsuarios != null ? idUsuarios.hashCode() : 0);
+        hash += (idUsuario != null ? idUsuario.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuarios_1)) {
+        if (!(object instanceof Usuarios)) {
             return false;
         }
-        Usuarios_1 other = (Usuarios_1) object;
-        if ((this.idUsuarios == null && other.idUsuarios != null) || (this.idUsuarios != null && !this.idUsuarios.equals(other.idUsuarios))) {
+        Usuarios other = (Usuarios) object;
+        if ((this.idUsuario == null && other.idUsuario != null) || (this.idUsuario != null && !this.idUsuario.equals(other.idUsuario))) {
             return false;
         }
         return true;
@@ -128,7 +131,7 @@ public class Usuarios_1 implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto_poo.Usuarios_1[ idUsuarios=" + idUsuarios + " ]";
+        return "proyecto_poo.Tables.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
