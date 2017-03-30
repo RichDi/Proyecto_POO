@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -279,6 +280,11 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
         jMenu5.add(jMenuItem7);
 
         jMenuItem8.setText("Acerca De...");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem8);
 
         jMenuBar1.add(jMenu5);
@@ -386,6 +392,10 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
         Nacionalidades_table edi = new Nacionalidades_table();
         edi.setVisible(true);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        JOptionPane.showMessageDialog(null, "Made with <3 by Delgado Rendon David Ricardo, UPVM, 30/03/2017");
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
