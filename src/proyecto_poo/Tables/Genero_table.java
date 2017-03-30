@@ -30,8 +30,8 @@ public class Genero_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        generosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT g FROM Generos g");
+        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        generosQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT g FROM Generos g");
         generosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : generosQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -39,8 +39,8 @@ public class Genero_table extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, generosList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idGeneros}"));
-        columnBinding.setColumnName("Id Generos");
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idGenero}"));
+        columnBinding.setColumnName("Id Genero");
         columnBinding.setColumnClass(Integer.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${descripcion}"));
         columnBinding.setColumnName("Descripcion");
@@ -121,8 +121,8 @@ public class Genero_table extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager entityManager;
-    private java.util.List<proyecto_poo.Forms.Generos> generosList;
+    private javax.persistence.EntityManager entityManager0;
+    private java.util.List<proyecto_poo.Tables.Generos> generosList;
     private javax.persistence.Query generosQuery;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

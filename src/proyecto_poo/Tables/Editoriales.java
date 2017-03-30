@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo.Forms;
+package proyecto_poo.Tables;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -11,6 +11,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,49 +26,50 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "editoriales", catalog = "fpoo", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Editoriales_1.findAll", query = "SELECT e FROM Editoriales_1 e"),
-    @NamedQuery(name = "Editoriales_1.findByIdEditoriales", query = "SELECT e FROM Editoriales_1 e WHERE e.idEditoriales = :idEditoriales"),
-    @NamedQuery(name = "Editoriales_1.findByNombre", query = "SELECT e FROM Editoriales_1 e WHERE e.nombre = :nombre"),
-    @NamedQuery(name = "Editoriales_1.findByDireccion", query = "SELECT e FROM Editoriales_1 e WHERE e.direccion = :direccion"),
-    @NamedQuery(name = "Editoriales_1.findByEmail", query = "SELECT e FROM Editoriales_1 e WHERE e.email = :email"),
-    @NamedQuery(name = "Editoriales_1.findByTelefonos", query = "SELECT e FROM Editoriales_1 e WHERE e.telefonos = :telefonos"),
-    @NamedQuery(name = "Editoriales_1.findByContacto", query = "SELECT e FROM Editoriales_1 e WHERE e.contacto = :contacto")})
-public class Editoriales_1 implements Serializable {
+    @NamedQuery(name = "Editoriales.findAll", query = "SELECT e FROM Editoriales e")
+    , @NamedQuery(name = "Editoriales.findByIdEditorial", query = "SELECT e FROM Editoriales e WHERE e.idEditorial = :idEditorial")
+    , @NamedQuery(name = "Editoriales.findByNombre", query = "SELECT e FROM Editoriales e WHERE e.nombre = :nombre")
+    , @NamedQuery(name = "Editoriales.findByDireccion", query = "SELECT e FROM Editoriales e WHERE e.direccion = :direccion")
+    , @NamedQuery(name = "Editoriales.findByEmail", query = "SELECT e FROM Editoriales e WHERE e.email = :email")
+    , @NamedQuery(name = "Editoriales.findByTelefono", query = "SELECT e FROM Editoriales e WHERE e.telefono = :telefono")
+    , @NamedQuery(name = "Editoriales.findByContacto", query = "SELECT e FROM Editoriales e WHERE e.contacto = :contacto")})
+public class Editoriales implements Serializable {
 
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_editoriales")
-    private Integer idEditoriales;
+    @Column(name = "id_editorial")
+    private Integer idEditorial;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "direccion")
     private String direccion;
     @Column(name = "email")
     private String email;
-    @Column(name = "telefonos")
-    private String telefonos;
+    @Column(name = "telefono")
+    private String telefono;
     @Column(name = "contacto")
     private String contacto;
 
-    public Editoriales_1() {
+    public Editoriales() {
     }
 
-    public Editoriales_1(Integer idEditoriales) {
-        this.idEditoriales = idEditoriales;
+    public Editoriales(Integer idEditorial) {
+        this.idEditorial = idEditorial;
     }
 
-    public Integer getIdEditoriales() {
-        return idEditoriales;
+    public Integer getIdEditorial() {
+        return idEditorial;
     }
 
-    public void setIdEditoriales(Integer idEditoriales) {
-        Integer oldIdEditoriales = this.idEditoriales;
-        this.idEditoriales = idEditoriales;
-        changeSupport.firePropertyChange("idEditoriales", oldIdEditoriales, idEditoriales);
+    public void setIdEditorial(Integer idEditorial) {
+        Integer oldIdEditorial = this.idEditorial;
+        this.idEditorial = idEditorial;
+        changeSupport.firePropertyChange("idEditorial", oldIdEditorial, idEditorial);
     }
 
     public String getNombre() {
@@ -99,14 +102,14 @@ public class Editoriales_1 implements Serializable {
         changeSupport.firePropertyChange("email", oldEmail, email);
     }
 
-    public String getTelefonos() {
-        return telefonos;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setTelefonos(String telefonos) {
-        String oldTelefonos = this.telefonos;
-        this.telefonos = telefonos;
-        changeSupport.firePropertyChange("telefonos", oldTelefonos, telefonos);
+    public void setTelefono(String telefono) {
+        String oldTelefono = this.telefono;
+        this.telefono = telefono;
+        changeSupport.firePropertyChange("telefono", oldTelefono, telefono);
     }
 
     public String getContacto() {
@@ -122,18 +125,18 @@ public class Editoriales_1 implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idEditoriales != null ? idEditoriales.hashCode() : 0);
+        hash += (idEditorial != null ? idEditorial.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Editoriales_1)) {
+        if (!(object instanceof Editoriales)) {
             return false;
         }
-        Editoriales_1 other = (Editoriales_1) object;
-        if ((this.idEditoriales == null && other.idEditoriales != null) || (this.idEditoriales != null && !this.idEditoriales.equals(other.idEditoriales))) {
+        Editoriales other = (Editoriales) object;
+        if ((this.idEditorial == null && other.idEditorial != null) || (this.idEditorial != null && !this.idEditorial.equals(other.idEditorial))) {
             return false;
         }
         return true;
@@ -141,7 +144,7 @@ public class Editoriales_1 implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto_poo.Editoriales_1[ idEditoriales=" + idEditoriales + " ]";
+        return "proyecto_poo.Tables.Editoriales[ idEditorial=" + idEditorial + " ]";
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

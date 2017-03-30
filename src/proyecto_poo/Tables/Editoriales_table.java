@@ -32,17 +32,17 @@ public class Editoriales_table extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        editoriales_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Editoriales_1 e");
-        editoriales_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : editoriales_1Query.getResultList();
+        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("fpoo?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        editorialesQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT e FROM Editoriales e");
+        editorialesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : editorialesQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, editoriales_1List, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEditoriales}"));
-        columnBinding.setColumnName("Id Editoriales");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, editorialesList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEditorial}"));
+        columnBinding.setColumnName("Id Editorial");
         columnBinding.setColumnClass(Integer.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
         columnBinding.setColumnName("Nombre");
@@ -53,8 +53,8 @@ public class Editoriales_table extends javax.swing.JFrame {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${email}"));
         columnBinding.setColumnName("Email");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefonos}"));
-        columnBinding.setColumnName("Telefonos");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefono}"));
+        columnBinding.setColumnName("Telefono");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${contacto}"));
         columnBinding.setColumnName("Contacto");
@@ -135,9 +135,9 @@ public class Editoriales_table extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.util.List<proyecto_poo.Forms.Editoriales_1> editoriales_1List;
-    private javax.persistence.Query editoriales_1Query;
-    private javax.persistence.EntityManager entityManager;
+    private java.util.List<proyecto_poo.Tables.Editoriales> editorialesList;
+    private javax.persistence.Query editorialesQuery;
+    private javax.persistence.EntityManager entityManager0;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

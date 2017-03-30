@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_poo.Forms;
+package proyecto_poo.Tables;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -11,6 +11,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,9 +26,9 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "generos", catalog = "fpoo", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Generos.findAll", query = "SELECT g FROM Generos g"),
-    @NamedQuery(name = "Generos.findByIdGeneros", query = "SELECT g FROM Generos g WHERE g.idGeneros = :idGeneros"),
-    @NamedQuery(name = "Generos.findByDescripcion", query = "SELECT g FROM Generos g WHERE g.descripcion = :descripcion")})
+    @NamedQuery(name = "Generos.findAll", query = "SELECT g FROM Generos g")
+    , @NamedQuery(name = "Generos.findByIdGenero", query = "SELECT g FROM Generos g WHERE g.idGenero = :idGenero")
+    , @NamedQuery(name = "Generos.findByDescripcion", query = "SELECT g FROM Generos g WHERE g.descripcion = :descripcion")})
 public class Generos implements Serializable {
 
     @Transient
@@ -34,27 +36,28 @@ public class Generos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_generos")
-    private Integer idGeneros;
+    @Column(name = "id_genero")
+    private Integer idGenero;
     @Column(name = "descripcion")
     private String descripcion;
 
     public Generos() {
     }
 
-    public Generos(Integer idGeneros) {
-        this.idGeneros = idGeneros;
+    public Generos(Integer idGenero) {
+        this.idGenero = idGenero;
     }
 
-    public Integer getIdGeneros() {
-        return idGeneros;
+    public Integer getIdGenero() {
+        return idGenero;
     }
 
-    public void setIdGeneros(Integer idGeneros) {
-        Integer oldIdGeneros = this.idGeneros;
-        this.idGeneros = idGeneros;
-        changeSupport.firePropertyChange("idGeneros", oldIdGeneros, idGeneros);
+    public void setIdGenero(Integer idGenero) {
+        Integer oldIdGenero = this.idGenero;
+        this.idGenero = idGenero;
+        changeSupport.firePropertyChange("idGenero", oldIdGenero, idGenero);
     }
 
     public String getDescripcion() {
@@ -70,7 +73,7 @@ public class Generos implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idGeneros != null ? idGeneros.hashCode() : 0);
+        hash += (idGenero != null ? idGenero.hashCode() : 0);
         return hash;
     }
 
@@ -81,7 +84,7 @@ public class Generos implements Serializable {
             return false;
         }
         Generos other = (Generos) object;
-        if ((this.idGeneros == null && other.idGeneros != null) || (this.idGeneros != null && !this.idGeneros.equals(other.idGeneros))) {
+        if ((this.idGenero == null && other.idGenero != null) || (this.idGenero != null && !this.idGenero.equals(other.idGenero))) {
             return false;
         }
         return true;
@@ -89,7 +92,7 @@ public class Generos implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto_poo.Generos[ idGeneros=" + idGeneros + " ]";
+        return "proyecto_poo.Tables.Generos[ idGenero=" + idGenero + " ]";
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
