@@ -491,7 +491,9 @@ public class MenuProyecto extends javax.swing.JFrame implements KeyListener{
     private void CHM_Brau(){
         try {
             Desktop des = Desktop.getDesktop();
-            File file = new File("C:\\Users\\drdr_\\Documents\\github\\Proyecto_POO\\Sys_Biblio.chm");
+            String sys_path = System.getProperty("user.dir");
+            String dir = sys_path + "\\Sys_biblio.chm";
+            File file = new File(dir);
             des.open(file);
         } catch (IOException ex) {
             Logger.getLogger(MenuProyecto.class.getName()).log(Level.SEVERE, null, ex);
